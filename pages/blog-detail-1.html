@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-dom-id="bd-page-title">Electron + Prisma 桌面数据库实践 - 博客</title>
+    <title data-dom-id="bd-page-title">Electron + Prisma 桌面应用开发实践2 - 博客</title>
     <style id="theme-vars">
 /* ============================================================
    OPC 大航海 · 软萌唯美设计系统
@@ -390,19 +390,13 @@
 
       
       <div class="article-container" style="padding-top:40px;">
-        <div data-dom-id="bd-tags" style="display:flex;gap:8px;margin-bottom:16px;">
-          <span class="tag-pill">技术实践</span>
-          <span class="tag-pill">Electron</span>
-          <span class="tag-pill">Prisma</span>
-        </div>
-        <h1 data-dom-id="bd-title" style="font-size:32px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 12px;font-family:var(--ljc-font-display);">文章标题</h1>
-        <div data-dom-id="bd-meta" style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ljc-neutral-400);">
-          <span>赖嘉诚</span>
+        <div data-dom-id="bd-tags" style="display:flex;gap:8px;margin-bottom:16px;"><span class="tag-pill">Electron</span><span class="tag-pill">Prisma</span><span class="tag-pill">桌面应用</span></div>
+        <h1 data-dom-id="bd-title" style="font-size:32px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 12px;font-family:var(--ljc-font-display);">Electron + Prisma 桌面应用开发实践2</h1>
+        <div data-dom-id="bd-meta" style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ljc-neutral-400);"><span>赖嘉诚</span>
           <span style="width:3px;height:3px;border-radius:50%;background:var(--ljc-neutral-300);display:inline-block;"></span>
-          <span style="font-family:var(--ljc-font-mono);">2026.07.28</span>
+          <span style="font-family:var(--ljc-font-mono);">2026.08.02</span>
           <span style="width:3px;height:3px;border-radius:50%;background:var(--ljc-neutral-300);display:inline-block;"></span>
-          <span>约 12 分钟</span>
-        </div>
+          <span>约 12 分钟</span></div>
       </div>
 
       
@@ -412,146 +406,42 @@
           
           <aside class="toc-sidebar">
             <div class="toc-label">目录</div>
-            <nav class="toc-nav">
-              <a href="#sec-why" class="toc-link active">为什么选 Prisma</a>
-              <a href="#sec-init" class="toc-link">项目初始化</a>
-              <a href="#sec-model" class="toc-link">定义数据模型</a>
-              <a href="#sec-ipc" class="toc-link">封装数据库操作</a>
-              <a href="#sec-migrate" class="toc-link">生成迁移并打包</a>
-              <a href="#sec-pitfalls" class="toc-link">踩过的坑</a>
-              <a href="#sec-summary" class="toc-link">总结</a>
-            </nav>
+            <nav class="toc-nav"><a href="#sec-0-jadj" class="toc-link active">为什么选 Prisma</a>
+              <a href="#sec-2-vbgv" class="toc-link">项目初始化</a>
+              <a href="#sec-5-elo8" class="toc-link">定义数据模型</a>
+              <a href="#sec-10-bnq0" class="toc-link">封装数据库操作</a>
+              <a href="#sec-12-bm8g" class="toc-link">踩过的坑</a>
+              <a href="#sec-18-2dqy" class="toc-link">总结</a></nav>
           </aside>
 
           
           <div class="article-main">
-            <div class="article-body">
-              <p>在桌面应用开发中，本地数据库的选型一直是个让人头疼的问题。SQLite 轻量但手写 SQL 繁琐，IndexedDB 灵活但调试困难。本文记录我在 LifeQuant v4 项目中，用 Electron + Prisma 搭建本地数据库的完整实践过程。</p>
-
-              <h2 id="sec-why">为什么选 Prisma</h2>
-              <p>Prisma 是一个现代化的 TypeScript ORM，它的优势在于：</p>
-              <ul>
-                <li>类型安全 — Schema 即类型，告别手写 interface</li>
-                <li>迁移管理 — 自动生成 migration 文件，版本可控</li>
-                <li>查询直观 — 链式 API 比 SQL 更易读</li>
-                <li>IDE 友好 — 完善的自动补全和类型推断</li>
-              </ul>
-
-              <h2 id="sec-init">项目初始化</h2>
-              <p>首先创建 Electron 项目并安装 Prisma 依赖：</p>
-
-              <pre><code class="language-bash">mkdir electron-prisma-demo && cd electron-prisma-demo
+            <div class="article-body"><h2 id="sec-0-jadj" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">为什么选 Prisma</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">在桌面应用开发中，本地数据库的选型一直是个让人头疼的问题。SQLite 轻量但手写 SQL 繁琐，IndexedDB 灵活但调试困难。</p>
+<h2 id="sec-2-vbgv" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">项目初始化</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">首先创建 Electron 项目并安装 Prisma 依赖：</p>
+<pre style="background:var(--ljc-neutral-100);padding:16px 20px;border-radius:var(--ljc-radius-medium);overflow-x:auto;margin:0 0 20px;"><code class="language-bash">mkdir electron-prisma-demo &amp;&amp; cd electron-prisma-demo
 npm init -y
-npm install electron prisma @prisma/client
-npm install --save-dev electron-builder</code></pre>
-
-              <p>然后初始化 Prisma，选择 SQLite 作为数据库引擎：</p>
-
-              <pre><code class="language-bash">npx prisma init --datasource-provider sqlite</code></pre>
-
-              <p>这会在项目根目录生成 <code class="language-text">prisma/schema.prisma</code> 和 <code class="language-text">.env</code> 文件。</p>
-
-              <h2 id="sec-model">定义数据模型</h2>
-              <p>以健康追踪应用为例，定义体征记录模型：</p>
-
-              <pre><code class="language-typescript">// prisma/schema.prisma
-generator client {
-  provider = "prisma-client-js"
-}
-
-datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
-}
-
-model HealthRecord {
-  id        Int      @id @default(autoincrement())
-  type      String   // heart_rate | blood_pressure | weight
-  value     Float
-  unit      String
-  note      String?
-  recordedAt DateTime @default(now())
-  createdAt  DateTime @default(now())
-
-  @@index([type, recordedAt])
-}</code></pre>
-
-              <blockquote>注意 SQLite 不支持数组类型和枚举，用 String 存储类型标识即可。</blockquote>
-
-              <h2 id="sec-ipc">封装数据库操作</h2>
-              <p>在 Electron 主进程中初始化 Prisma Client，并通过 IPC 暴露给渲染进程：</p>
-
-              <pre><code class="language-typescript">// main/database.ts
-import { PrismaClient } from '@prisma/client'
-import { app } from 'electron'
-import path from 'path'
-
-const prisma = new PrismaClient({
-  datasources: {
-    db: {
-      url: `file:${path.join(app.getPath('userData'), 'app.db')}`
-    }
-  }
-})
-
-export async function createRecord(data: {
-  type: string
-  value: number
-  unit: string
-  note?: string
-}) {
-  return prisma.healthRecord.create({ data })
-}
-
-export async function getRecords(type: string, limit = 100) {
-  return prisma.healthRecord.findMany({
-    where: { type },
-    orderBy: { recordedAt: 'desc' },
-    take: limit
-  })
-}</code></pre>
-
-              <h2 id="sec-migrate">生成迁移并打包</h2>
-              <p>每次修改 Schema 后，生成迁移文件并应用：</p>
-
-              <pre><code class="language-bash">npx prisma migrate dev --name init
-npx prisma generate</code></pre>
-
-              <p>打包时需要把 <code class="language-text">prisma/schema.prisma</code> 和迁移文件包含进 Electron 应用中：</p>
-
-              <pre><code class="language-json">// package.json
-{
-  "build": {
-    "extraResources": [
-      { "from": "prisma", "to": "prisma" },
-      { "from": "node_modules/.prisma", "to": "node_modules/.prisma" }
-    ]
-  }
-}</code></pre>
-
-              <h2 id="sec-pitfalls">踩过的坑</h2>
-              <h3>1. Prisma Client 路径问题</h3>
-              <p>打包后 Prisma Client 的查询引擎动态库路径会丢失。解决方案是在 <code class="language-text">beforePack</code> 钩子中修复路径，或使用 <code class="language-text">@prisma/client/edge</code> 版本。</p>
-
-              <h3>2. 数据库文件位置</h3>
-              <p>不要把数据库文件放在应用安装目录，否则更新时会丢失数据。应该使用 <code class="language-text">app.getPath('userData')</code> 获取用户数据目录。</p>
-
-              <h3>3. 主进程阻塞</h3>
-              <p>Prisma 的同步查询会阻塞 Electron 主进程。建议用 <code class="language-text">async/await</code> 并通过 IPC 异步调用。</p>
-
-              <h2 id="sec-summary">总结</h2>
-              <p>Electron + Prisma + SQLite 是桌面应用本地存储的优秀方案。类型安全、迁移管理、查询便捷三大优势让开发体验显著提升。主要注意打包路径和进程通信的异步处理。</p>
-            </div>
+npm install electron prisma @prisma/client</code></pre>
+<h2 id="sec-5-elo8" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">定义数据模型</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">以健康追踪应用为例，定义体征记录模型：</p>
+<blockquote style="margin:0 0 20px;padding:14px 18px;background:var(--ljc-pink-50);border-radius:var(--ljc-radius-medium);font-size:14px;color:var(--ljc-neutral-600);line-height:1.7;">
+<p style="margin:0;">注意 SQLite 不支持数组类型和枚举，用 String 存储类型标识即可。</p>
+</blockquote>
+<h2 id="sec-10-bnq0" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">封装数据库操作</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">在 Electron 主进程中初始化 Prisma Client，并通过 IPC 暴露给渲染进程。</p>
+<h2 id="sec-12-bm8g" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">踩过的坑</h2>
+<ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:10px;">
+<li style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.7;padding-left:20px;position:relative;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">query engine DLL 被锁定</strong>: 需要先 kill electron 进程</li>
+<li style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.7;padding-left:20px;position:relative;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">Date 对象序列化</strong>: IPC 传输时会变成 string</li>
+<li style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.7;padding-left:20px;position:relative;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">路径问题</strong>: 需要用 app.getPath(&#39;userData&#39;)</li>
+</ul>
+<h2 id="sec-18-2dqy" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">总结</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">Prisma + Electron 是本地优先桌面应用的优秀组合，类型安全 + 迁移管理让开发体验非常流畅。</p></div>
 
             
             <div style="margin-top:48px;padding-top:32px;">
-              <div data-dom-id="bd-tags-bottom" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;">
-                <span class="tag-pill">Electron</span>
-                <span class="tag-pill">Prisma</span>
-                <span class="tag-pill">SQLite</span>
-                <span class="tag-pill">TypeScript</span>
-                <span class="tag-pill">桌面应用</span>
-              </div>
+              <div data-dom-id="bd-tags-bottom" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;"><span class="tag-pill">Electron</span><span class="tag-pill">Prisma</span><span class="tag-pill">桌面应用</span></div>
               <div style="display:flex;justify-content:space-between;align-items:center;">
                 <a href="blog-categorized.html" class="article-back" style="font-size:13px;color:var(--ljc-neutral-400);text-decoration:none;">← 返回博客列表</a>
                 <a href="contact.html" style="font-size:13px;color:var(--ljc-pink-500);text-decoration:none;">有问题？联系我 →</a>

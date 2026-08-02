@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
+    <title data-dom-id="bd-page-title">但是v是的v - 博客</title>
     <style id="theme-vars">
 /* ============================================================
    OPC 大航海 · 软萌唯美设计系统
@@ -106,7 +106,6 @@
   --ljc-shadow-md: 0 4px 16px rgba(180, 170, 200, 0.04);
   --ljc-shadow-lg: 0 8px 24px rgba(180, 170, 200, 0.05);
 }
-
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
     <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
@@ -220,49 +219,164 @@
         background-color: currentColor;
       }
     </style>
-</head>
-<body class="min-h-screen font-sans antialiased" style="font-family:var(--ljc-font-body);background:var(--ljc-blue-50);color:var(--ljc-foreground);">
-    <style id="critical-layout">
-      .ljc-container { max-width:920px; margin:0 auto; padding:0 24px; }
-      .ljc-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-      .ljc-grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
-      .ljc-text-balance { text-wrap:balance; word-break:keep-all; }
-      /* nav hover — subtle pink tint, no border change */
-      .ljc-nav-link { transition:background .16s cubic-bezier(.2,.8,.2,1), color .16s cubic-bezier(.2,.8,.2,1); }
-      .ljc-nav-link:hover { background:var(--ljc-pink-50); }
-      .ljc-nav-link[data-active="true"] { background:var(--ljc-pink-100) !important; color:var(--ljc-pink-500) !important; font-weight:500; }
-      /* CTA — pink, soft shadow, no border */
-      .ljc-cta { transition:transform .16s cubic-bezier(.2,.8,.2,1), background .16s cubic-bezier(.2,.8,.2,1), box-shadow .16s cubic-bezier(.2,.8,.2,1); }
-      .ljc-cta:hover { background:var(--ljc-pink-400); transform:translateY(-1px); }
-      .ljc-cta:active { transform:translateY(0); }
-      .ljc-cta:focus-visible { outline:2px solid var(--ljc-pink-300); outline-offset:3px; }
-      /* invisible panels — faint tint, hover to pink-50 */
-      .ljc-panel { transition:background .16s cubic-bezier(.2,.8,.2,1); }
-      .ljc-panel:hover { background:var(--ljc-pink-50); }
-      /* list item hover */
-      .ljc-list-item { transition:background .16s cubic-bezier(.2,.8,.2,1); border-radius:var(--ljc-radius-small); }
-      .ljc-list-item:hover { background:var(--ljc-pink-50); }
-      /* arrow link */
-      .ljc-link-arrow { transition:gap .16s cubic-bezier(.2,.8,.2,1); display:inline-flex; align-items:center; gap:6px; }
-      .ljc-link-arrow:hover { gap:10px; }
-      /* pulse dot for Now status */
-      .ljc-pulse-dot { animation:ljc-pulse 2.4s ease-in-out infinite; transform-origin:center; }
-      @keyframes ljc-pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.4;transform:scale(.7);} }
-      @media (max-width:900px){ .ljc-grid-3{grid-template-columns:1fr;} .ljc-grid-2{grid-template-columns:1fr;} }
-      @media (max-width:640px){ .ljc-container{padding:0 16px;} }
-      @media (prefers-reduced-motion:reduce){ .ljc-pulse-dot{animation:none;} .ljc-cta,.ljc-nav-link,.ljc-panel,.ljc-list-item,.ljc-link-arrow{transition:none !important;} *{animation-duration:.01ms !important;transition-duration:.01ms !important;} }
+    
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+    <style id="code-highlight-theme">
+      /* Custom Prism theme — soft-cute palette */
+      code[class*="language-"], pre[class*="language-"] {
+        font-family: var(--ljc-font-mono);
+        font-size: 13px;
+        line-height: 1.7;
+        tab-size: 2;
+        text-shadow: none;
+      }
+      pre[class*="language-"] {
+        background: var(--ljc-neutral-100);
+        border-radius: var(--ljc-radius-medium);
+        padding: 20px 24px;
+        margin: 0 0 24px;
+        overflow-x: auto;
+        box-shadow: var(--ljc-shadow-sm);
+      }
+      :not(pre) > code[class*="language-"] {
+        background: var(--ljc-pink-50);
+        color: var(--ljc-pink-600);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      .token.comment, .token.prolog, .token.doctype, .token.cdata { color: var(--ljc-neutral-400); font-style: italic; }
+      .token.punctuation { color: var(--ljc-neutral-500); }
+      .token.property, .token.tag, .token.boolean, .token.constant, .token.symbol { color: var(--ljc-pink-500); }
+      .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: var(--ljc-state-success); }
+      .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string { color: var(--ljc-neutral-600); }
+      .token.atrule, .token.attr-value, .token.keyword { color: var(--ljc-pink-500); font-weight: 500; }
+      .token.function, .token.class-name { color: var(--ljc-blue-500); }
+      .token.regex, .token.important, .token.variable { color: var(--ljc-pink-400); }
+      .token.number { color: var(--ljc-pink-400); }
+      .token.important, .token.bold { font-weight: bold; }
+      .token.italic { font-style: italic; }
     </style>
+    <style id="page-layout">
+      .article-container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+      .article-back { transition: color .2s ease; }
+      .article-back:hover { color: var(--ljc-pink-400); }
+
+      /* ===== Three-column grid: TOC + Article + Sidebar ===== */
+      .detail-grid {
+        display: grid;
+        grid-template-columns: 200px 1fr 260px;
+        gap: 40px;
+        align-items: start;
+      }
+
+      /* ===== TOC sidebar ===== */
+      .toc-sidebar { position: sticky; top: 80px; }
+      .toc-label {
+        font-size: 11px; font-weight: 500; color: var(--ljc-neutral-400);
+        letter-spacing: 0.1em; margin-bottom: 14px; text-transform: uppercase;
+        font-family: var(--ljc-font-body);
+      }
+      .toc-nav { display: flex; flex-direction: column; gap: 2px; }
+      .toc-link {
+        font-size: 13px; color: var(--ljc-neutral-500); text-decoration: none;
+        padding: 7px 14px; border-radius: var(--ljc-radius-small);
+        transition: all .15s ease; line-height: 1.5;
+        border-left: 2px solid transparent; display: block;
+        font-family: var(--ljc-font-body);
+      }
+      .toc-link:hover { color: var(--ljc-pink-500); background: var(--ljc-pink-50); }
+      .toc-link.active {
+        color: var(--ljc-pink-500); border-left-color: var(--ljc-pink-300);
+        background: var(--ljc-pink-50); font-weight: 500;
+      }
+
+      /* ===== Article main column ===== */
+      .article-body { font-family: var(--ljc-font-body); }
+      .article-body p { font-size: 15px; color: var(--ljc-neutral-600); line-height: 1.85; margin: 0 0 20px; }
+      .article-body h2 {
+        font-family: var(--ljc-font-display); font-size: 22px; font-weight: 500;
+        color: var(--ljc-neutral-700); margin: 44px 0 16px; letter-spacing: -0.01em;
+        scroll-margin-top: 80px;
+      }
+      .article-body h3 {
+        font-family: var(--ljc-font-display); font-size: 18px; font-weight: 500;
+        color: var(--ljc-neutral-700); margin: 32px 0 12px;
+        scroll-margin-top: 80px;
+      }
+      .article-body ul { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 10px; }
+      .article-body li { font-size: 15px; color: var(--ljc-neutral-600); line-height: 1.7; padding-left: 20px; position: relative; }
+      .article-body li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--ljc-pink-200); }
+      .article-body blockquote { margin: 0 0 24px; padding: 16px 20px; background: var(--ljc-pink-50); border-radius: var(--ljc-radius-medium); font-size: 14px; color: var(--ljc-neutral-600); line-height: 1.7; }
+
+      /* ===== Right sidebar: video + resources ===== */
+      .resource-sidebar { position: sticky; top: 80px; }
+      .sidebar-video {
+        width: 100%; aspect-ratio: 16/9;
+        background: linear-gradient(135deg, var(--ljc-pink-50), var(--ljc-blue-50));
+        border-radius: var(--ljc-radius-medium);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; transition: box-shadow .2s ease;
+        position: relative; overflow: hidden;
+      }
+      .sidebar-video:hover { box-shadow: var(--ljc-shadow-md); }
+      .video-play-btn {
+        width: 48px; height: 48px; border-radius: 50%;
+        background: rgba(255,255,255,0.85);
+        display: flex; align-items: center; justify-content: center;
+        backdrop-filter: blur(8px); transition: transform .2s ease;
+      }
+      .sidebar-video:hover .video-play-btn { transform: scale(1.08); }
+      .sidebar-label {
+        font-size: 13px; font-weight: 500; color: var(--ljc-neutral-700);
+        font-family: var(--ljc-font-display); margin-bottom: 14px;
+      }
+      .resource-card {
+        display: flex; align-items: center; gap: 12px;
+        padding: 12px 14px; border-radius: var(--ljc-radius-medium);
+        background: var(--ljc-neutral-0); text-decoration: none;
+        transition: background .2s ease;
+      }
+      .resource-card:hover { background: var(--ljc-pink-50); }
+      .resource-card-title { font-size: 13px; font-weight: 500; color: var(--ljc-neutral-700); }
+      .resource-card-desc { font-size: 11px; color: var(--ljc-neutral-400); margin-top: 2px; }
+
+      .tag-pill { display: inline-block; font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: var(--ljc-radius-full); background: var(--ljc-pink-50); color: var(--ljc-pink-500); }
+      .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+      .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+
+      @media (max-width: 900px) {
+        .detail-grid { grid-template-columns: 1fr; gap: 32px; }
+        .toc-sidebar { position: static; order: 1; }
+        .article-main { order: 2; }
+        .resource-sidebar { position: static; order: 3; }
+      }
+      @media (max-width: 640px) {
+        .article-container { padding: 0 16px; }
+        .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+        .footer-bottom { flex-direction: column; gap: 8px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .sidebar-video, .video-play-btn, .resource-card, .article-back { transition: none; }
+        .sidebar-video:hover .video-play-btn { transform: none; }
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased" style="font-family:var(--ljc-font-body);background:var(--ljc-blue-100);color:var(--ljc-foreground);">
 
     
     <nav style="background:rgba(255,255,255,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;">
-      <div style="max-width:920px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;"><a href="index.html" data-dom-id="nav-home" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
+      <div style="max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;"><a href="index.html" data-dom-id="nav-home" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
   <span style="width:8px;height:8px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
   <span style="font-size:15px;font-weight:500;color:var(--ljc-neutral-700);letter-spacing:0.01em;">赖嘉诚</span>
   <span style="font-size:11px;color:var(--ljc-neutral-400);letter-spacing:0.05em;">OPC 大航海</span>
 </a>
         <div style="display:flex;align-items:center;gap:2px;">
-          <a href="index.html" data-dom-id="nav-index" data-nav-key="index" data-active="true" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:500;color:var(--ljc-pink-500);background:var(--ljc-pink-100);">首页</a>
-          <a href="blog-categorized.html" data-dom-id="nav-blog" data-nav-key="blog" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">博客</a>
+          <a href="index.html" data-dom-id="nav-index" data-nav-key="index" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">首页</a>
+          <a href="blog-categorized.html" data-dom-id="nav-blog" data-nav-key="blog" data-active="true" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:500;color:var(--ljc-pink-500);background:var(--ljc-pink-100);">博客</a>
           <a href="portfolio.html" data-dom-id="nav-portfolio" data-nav-key="portfolio" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">作品集</a>
           <a href="contact.html" data-dom-id="nav-contact" data-nav-key="contact" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">联系</a>
         </div></div>
@@ -270,22 +384,53 @@
 
     <main style="background:var(--ljc-blue-50);">
       
-      <section style="max-width:920px;margin:0 auto;padding:88px 24px 56px;text-align:center;">
-      <h1 style="font-size:48px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 16px;letter-spacing:0.01em;font-family:var(--ljc-font-display);">赖嘉诚</h1>
-      <p style="font-size:17px;color:var(--ljc-neutral-400);margin:0 0 36px;line-height:1.6;">独立开发者 · 教育创作者 · 一人公司探索者</p>
-      <a href="blog-categorized.html" data-dom-id="cta-read-blog" style="display:inline-flex;align-items:center;gap:8px;background:var(--ljc-pink-300);color:#fff;font-size:15px;font-weight:500;padding:13px 32px;border-radius:var(--ljc-radius-medium);text-decoration:none;box-shadow:0 4px 16px rgba(255,181,200,0.25);transition:background .2s ease,transform .2s ease;">
-        阅读博客
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-      </a>
-    </section>
+      <div class="article-container" style="padding-top:24px;">
+        <a href="blog-categorized.html" data-dom-id="back-blog" class="article-back" style="font-size:13px;color:var(--ljc-neutral-400);text-decoration:none;">← 返回博客</a>
+      </div>
 
-      <section data-dom-id="latest-posts" style="max-width:920px;margin:0 auto;padding:24px 24px 72px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;">
-          <h2 style="font-size:22px;font-weight:500;color:var(--ljc-neutral-700);margin:0;font-family:var(--ljc-font-display);">最新文章</h2>
-          <a href="blog-categorized.html" style="font-size:13px;color:var(--ljc-neutral-400);text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:color .2s ease;">查看全部 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+      
+      <div class="article-container" style="padding-top:40px;">
+        <div data-dom-id="bd-tags" style="display:flex;gap:8px;margin-bottom:16px;"></div>
+        <h1 data-dom-id="bd-title" style="font-size:32px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 12px;font-family:var(--ljc-font-display);">但是v是的v</h1>
+        <div data-dom-id="bd-meta" style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ljc-neutral-400);"><span>赖嘉诚</span>
+          <span style="width:3px;height:3px;border-radius:50%;background:var(--ljc-neutral-300);display:inline-block;"></span>
+          <span style="font-family:var(--ljc-font-mono);">2026.08.02</span>
+          <span style="width:3px;height:3px;border-radius:50%;background:var(--ljc-neutral-300);display:inline-block;"></span>
+          <span>约 12 分钟</span></div>
+      </div>
+
+      
+      <div class="article-container" style="padding-top:48px;padding-bottom:64px;">
+        <div class="detail-grid">
+
+          
+          <aside class="toc-sidebar">
+            <div class="toc-label">目录</div>
+            <nav class="toc-nav"><a href="#sec-0-hxyd" class="toc-link active">CE打算</a></nav>
+          </aside>
+
+          
+          <div class="article-main">
+            <div class="article-body"><h2 id="sec-0-hxyd" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">CE打算</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">FUCK</p></div>
+
+            
+            <div style="margin-top:48px;padding-top:32px;">
+              <div data-dom-id="bd-tags-bottom" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;"></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="blog-categorized.html" class="article-back" style="font-size:13px;color:var(--ljc-neutral-400);text-decoration:none;">← 返回博客列表</a>
+                <a href="contact.html" style="font-size:13px;color:var(--ljc-pink-500);text-decoration:none;">有问题？联系我 →</a>
+              </div>
+            </div>
+          </div>
+
+          
+          <aside class="resource-sidebar">
+      <div style="font-size:11px;font-weight:500;color:var(--ljc-neutral-400);letter-spacing:0.08em;text-transform:uppercase;margin:20px 0 12px;">配套资料</div>
+      </aside>
+
         </div>
-        <div class="latest-posts-list" style="display:flex;flex-direction:column;gap:20px;"><p style="font-size:14px;color:var(--ljc-neutral-400);text-align:center;padding:24px 0;">还没有发布文章，敬请期待。</p></div>
-      </section>
+      </div>
     </main>
 
     
@@ -324,6 +469,37 @@
       </div>
     </footer>
 
-    <script>lucide.createIcons();</script>
+    <script>
+      lucide.createIcons();
+      if (typeof Prism !== 'undefined') { Prism.highlightAll(); }
+
+      // TOC scroll-spy: highlight active section
+      (function() {
+        var headings = document.querySelectorAll('.article-body h2[id]');
+        var tocLinks = document.querySelectorAll('.toc-link');
+        function updateActive() {
+          var scrollY = window.scrollY + 100;
+          var current = headings[0];
+          headings.forEach(function(h) {
+            if (h.offsetTop <= scrollY) current = h;
+          });
+          var currentId = current ? current.id : '';
+          tocLinks.forEach(function(link) {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+          });
+        }
+        window.addEventListener('scroll', updateActive, { passive: true });
+        updateActive();
+
+        // Smooth scroll on TOC click
+        tocLinks.forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+      })();
+    </script>
 </body>
 </html>

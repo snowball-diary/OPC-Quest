@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
+    <title data-dom-id="pd-page-title">个人网站 - 作品集</title>
     <style id="theme-vars">
 /* ============================================================
    OPC 大航海 · 软萌唯美设计系统
@@ -221,39 +221,16 @@
       }
     </style>
 </head>
-<body class="min-h-screen font-sans antialiased" style="font-family:var(--ljc-font-body);background:var(--ljc-blue-50);color:var(--ljc-foreground);">
-    <style id="critical-layout">
-      .ljc-container { max-width:920px; margin:0 auto; padding:0 24px; }
-      .ljc-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-      .ljc-grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
-      .ljc-text-balance { text-wrap:balance; word-break:keep-all; }
-      /* nav hover — subtle pink tint, no border change */
-      .ljc-nav-link { transition:background .16s cubic-bezier(.2,.8,.2,1), color .16s cubic-bezier(.2,.8,.2,1); }
-      .ljc-nav-link:hover { background:var(--ljc-pink-50); }
-      .ljc-nav-link[data-active="true"] { background:var(--ljc-pink-100) !important; color:var(--ljc-pink-500) !important; font-weight:500; }
-      /* CTA — pink, soft shadow, no border */
-      .ljc-cta { transition:transform .16s cubic-bezier(.2,.8,.2,1), background .16s cubic-bezier(.2,.8,.2,1), box-shadow .16s cubic-bezier(.2,.8,.2,1); }
-      .ljc-cta:hover { background:var(--ljc-pink-400); transform:translateY(-1px); }
-      .ljc-cta:active { transform:translateY(0); }
-      .ljc-cta:focus-visible { outline:2px solid var(--ljc-pink-300); outline-offset:3px; }
-      /* invisible panels — faint tint, hover to pink-50 */
-      .ljc-panel { transition:background .16s cubic-bezier(.2,.8,.2,1); }
-      .ljc-panel:hover { background:var(--ljc-pink-50); }
-      /* list item hover */
-      .ljc-list-item { transition:background .16s cubic-bezier(.2,.8,.2,1); border-radius:var(--ljc-radius-small); }
-      .ljc-list-item:hover { background:var(--ljc-pink-50); }
-      /* arrow link */
-      .ljc-link-arrow { transition:gap .16s cubic-bezier(.2,.8,.2,1); display:inline-flex; align-items:center; gap:6px; }
-      .ljc-link-arrow:hover { gap:10px; }
-      /* pulse dot for Now status */
-      .ljc-pulse-dot { animation:ljc-pulse 2.4s ease-in-out infinite; transform-origin:center; }
-      @keyframes ljc-pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.4;transform:scale(.7);} }
-      @media (max-width:900px){ .ljc-grid-3{grid-template-columns:1fr;} .ljc-grid-2{grid-template-columns:1fr;} }
-      @media (max-width:640px){ .ljc-container{padding:0 16px;} }
-      @media (prefers-reduced-motion:reduce){ .ljc-pulse-dot{animation:none;} .ljc-cta,.ljc-nav-link,.ljc-panel,.ljc-list-item,.ljc-link-arrow{transition:none !important;} *{animation-duration:.01ms !important;transition-duration:.01ms !important;} }
+<body class="min-h-screen font-sans antialiased">
+    <style>
+      .pf-placeholder { background: linear-gradient(135deg, var(--ljc-pink-50), var(--ljc-blue-50)); }
+      .pd-card { transition: background .2s ease; }
+      .pd-card:hover { background: var(--ljc-pink-50); }
+      @media (max-width: 640px) {
+        .pd-container { padding: 0 16px !important; }
+      }
     </style>
 
-    
     <nav style="background:rgba(255,255,255,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;">
       <div style="max-width:920px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;"><a href="index.html" data-dom-id="nav-home" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
   <span style="width:8px;height:8px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
@@ -261,34 +238,51 @@
   <span style="font-size:11px;color:var(--ljc-neutral-400);letter-spacing:0.05em;">OPC 大航海</span>
 </a>
         <div style="display:flex;align-items:center;gap:2px;">
-          <a href="index.html" data-dom-id="nav-index" data-nav-key="index" data-active="true" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:500;color:var(--ljc-pink-500);background:var(--ljc-pink-100);">首页</a>
+          <a href="index.html" data-dom-id="nav-index" data-nav-key="index" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">首页</a>
           <a href="blog-categorized.html" data-dom-id="nav-blog" data-nav-key="blog" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">博客</a>
-          <a href="portfolio.html" data-dom-id="nav-portfolio" data-nav-key="portfolio" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">作品集</a>
+          <a href="portfolio.html" data-dom-id="nav-portfolio" data-nav-key="portfolio" data-active="true" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:500;color:var(--ljc-pink-500);background:var(--ljc-pink-100);">作品集</a>
           <a href="contact.html" data-dom-id="nav-contact" data-nav-key="contact" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">联系</a>
         </div></div>
     </nav>
 
     <main style="background:var(--ljc-blue-50);">
-      
-      <section style="max-width:920px;margin:0 auto;padding:88px 24px 56px;text-align:center;">
-      <h1 style="font-size:48px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 16px;letter-spacing:0.01em;font-family:var(--ljc-font-display);">赖嘉诚</h1>
-      <p style="font-size:17px;color:var(--ljc-neutral-400);margin:0 0 36px;line-height:1.6;">独立开发者 · 教育创作者 · 一人公司探索者</p>
-      <a href="blog-categorized.html" data-dom-id="cta-read-blog" style="display:inline-flex;align-items:center;gap:8px;background:var(--ljc-pink-300);color:#fff;font-size:15px;font-weight:500;padding:13px 32px;border-radius:var(--ljc-radius-medium);text-decoration:none;box-shadow:0 4px 16px rgba(255,181,200,0.25);transition:background .2s ease,transform .2s ease;">
-        阅读博客
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-      </a>
-    </section>
+      <div class="pd-container" style="max-width:920px;margin:0 auto;padding:24px 24px 80px;">
+        <a href="portfolio.html" data-dom-id="pd-back" style="display:inline-block;font-size:13px;color:var(--ljc-neutral-400);text-decoration:none;margin-bottom:24px;">← 返回作品集</a>
 
-      <section data-dom-id="latest-posts" style="max-width:920px;margin:0 auto;padding:24px 24px 72px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;">
-          <h2 style="font-size:22px;font-weight:500;color:var(--ljc-neutral-700);margin:0;font-family:var(--ljc-font-display);">最新文章</h2>
-          <a href="blog-categorized.html" style="font-size:13px;color:var(--ljc-neutral-400);text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:color .2s ease;">查看全部 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
-        </div>
-        <div class="latest-posts-list" style="display:flex;flex-direction:column;gap:20px;"><p style="font-size:14px;color:var(--ljc-neutral-400);text-align:center;padding:24px 0;">还没有发布文章，敬请期待。</p></div>
-      </section>
+        <div data-dom-id="pd-cover"><div class="pf-placeholder" style="height:320px;border-radius:var(--ljc-radius-large);margin-bottom:24px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--ljc-pink-50),var(--ljc-blue-50));"><span style="font-size:32px;font-weight:500;color:var(--ljc-neutral-400);font-family:var(--ljc-font-display);">个人网站</span></div></div>
+        <div data-dom-id="pd-header">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--ljc-blue-300);display:inline-block;"></span>
+      <span style="font-size:12px;color:var(--ljc-neutral-400);">已完成</span>
+      <span style="font-size:11px;color:var(--ljc-neutral-300);">·</span>
+      <span style="font-size:11px;color:var(--ljc-neutral-400);font-family:var(--ljc-font-mono);">webtool</span>
+    </div>
+    <h1 style="font-size:36px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 14px;font-family:var(--ljc-font-display);letter-spacing:0.01em;">个人网站</h1>
+    <p style="font-size:15px;color:var(--ljc-neutral-500);line-height:1.7;margin:0 0 20px;max-width:680px;">个人 IP 门户 · 博客 · 作品集 · 联系方式</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;"><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:12px;padding:4px 12px;border-radius:var(--ljc-radius-full);">HTML</span><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:12px;padding:4px 12px;border-radius:var(--ljc-radius-full);">Tailwind</span></div>
+    
+  </div>
+
+        <section style="margin-top:48px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ljc-pink-400)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <h2 style="font-size:18px;font-weight:500;color:var(--ljc-neutral-700);margin:0;font-family:var(--ljc-font-display);">相关博客</h2>
+            <span style="font-size:12px;color:var(--ljc-neutral-400);" data-dom-id="pd-blogs-count"></span>
+          </div>
+          <div data-dom-id="pd-blogs"><p style="font-size:13px;color:var(--ljc-neutral-400);margin:0;padding:24px;text-align:center;background:var(--ljc-neutral-50);border-radius:var(--ljc-radius-medium);">还没有关联博客</p></div>
+        </section>
+
+        <section style="margin-top:48px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ljc-blue-400)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M12 18v-6"></path><path d="m9 15 3 3 3-3"></path></svg>
+            <h2 style="font-size:18px;font-weight:500;color:var(--ljc-neutral-700);margin:0;font-family:var(--ljc-font-display);">下载资源</h2>
+            <span style="font-size:12px;color:var(--ljc-neutral-400);" data-dom-id="pd-downloads-count"></span>
+          </div>
+          <div data-dom-id="pd-downloads"><p style="font-size:13px;color:var(--ljc-neutral-400);margin:0;padding:24px;text-align:center;background:var(--ljc-neutral-50);border-radius:var(--ljc-radius-medium);">还没有关联下载资源</p></div>
+        </section>
+      </div>
     </main>
 
-    
     <footer style="border-top:1px solid var(--ljc-neutral-200);margin-top:96px;padding:48px 24px 32px;background:var(--ljc-neutral-50);">
       <div style="max-width:920px;margin:0 auto;">
         <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;">
@@ -324,6 +318,8 @@
       </div>
     </footer>
 
-    <script>lucide.createIcons();</script>
+    <script>
+      lucide.createIcons();
+    </script>
 </body>
 </html>

@@ -221,7 +221,7 @@
       }
     </style>
 </head>
-<body class="min-h-screen font-sans antialiased">
+<body class="min-h-screen font-sans antialiased" style="background:var(--ljc-blue-50);">
     <style id="critical-layout">
       /* ===== Layout Safety (survives without Tailwind) ===== */
       .page-wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
@@ -487,343 +487,92 @@
       </section>
 
       
-      <section class="blog-section" id="categories-top" style="margin-top:64px;">
+      <section class="blog-section" id="categories-top" style="margin-top:64px;"><div class="cat-block" id="cat-tech">
+            <div class="cat-toggle" onclick="toggleCat(this)">
+              <div class="cat-toggle-left">
+                <span class="cat-toggle-name">技术类</span>
+                <span class="cat-toggle-desc">代码、架构与工程实践</span>
+              </div>
+              <div class="cat-toggle-right">
+                <span class="cat-toggle-count">0 篇</span>
+                <svg class="cat-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+              </div>
+            </div>
+            <div class="cat-body">
+              <div class="cat-body-inner"></div>
+            </div>
+          </div><div class="cat-block" id="cat-product">
+            <div class="cat-toggle" onclick="toggleCat(this)">
+              <div class="cat-toggle-left">
+                <span class="cat-toggle-name">产品概念</span>
+                <span class="cat-toggle-desc">产品思考、需求洞察与商业模式</span>
+              </div>
+              <div class="cat-toggle-right">
+                <span class="cat-toggle-count">0 篇</span>
+                <svg class="cat-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+              </div>
+            </div>
+            <div class="cat-body">
+              <div class="cat-body-inner"></div>
+            </div>
+          </div><div class="cat-block" id="cat-content">
+            <div class="cat-toggle" onclick="toggleCat(this)">
+              <div class="cat-toggle-left">
+                <span class="cat-toggle-name">内容创作</span>
+                <span class="cat-toggle-desc">写作、视频与自媒体运营</span>
+              </div>
+              <div class="cat-toggle-right">
+                <span class="cat-toggle-count">0 篇</span>
+                <svg class="cat-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+              </div>
+            </div>
+            <div class="cat-body">
+              <div class="cat-body-inner"></div>
+            </div>
+          </div><div class="cat-block" id="cat-tech-insight">
+            <div class="cat-toggle" onclick="toggleCat(this)">
+              <div class="cat-toggle-left">
+                <span class="cat-toggle-name">科技认知</span>
+                <span class="cat-toggle-desc">前沿科技趋势与个人见解</span>
+              </div>
+              <div class="cat-toggle-right">
+                <span class="cat-toggle-count">0 篇</span>
+                <svg class="cat-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+              </div>
+            </div>
+            <div class="cat-body">
+              <div class="cat-body-inner"></div>
+            </div>
+          </div><div class="cat-block" id="cat-opc">
+            <div class="cat-toggle" onclick="toggleCat(this)">
+              <div class="cat-toggle-left">
+                <span class="cat-toggle-name">OPC 相关</span>
+                <span class="cat-toggle-desc">一人公司探索、独立开发与商业实验</span>
+              </div>
+              <div class="cat-toggle-right">
+                <span class="cat-toggle-count">0 篇</span>
+                <svg class="cat-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+              </div>
+            </div>
+            <div class="cat-body">
+              <div class="cat-body-inner"></div>
+            </div>
+          </div><div class="cat-block" id="cat-legal">
+            <div class="cat-toggle" onclick="toggleCat(this)">
+              <div class="cat-toggle-left">
+                <span class="cat-toggle-name">财税法务</span>
+                <span class="cat-toggle-desc">合规、税务与法律知识</span>
+              </div>
+              <div class="cat-toggle-right">
+                <span class="cat-toggle-count">0 篇</span>
+                <svg class="cat-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+              </div>
+            </div>
+            <div class="cat-body">
+              <div class="cat-body-inner"></div>
+            </div>
+          </div></section>
 
-        
-        <div class="cat-block" id="cat-tech">
-          <div class="cat-toggle" onclick="toggleCat(this)">
-            <div class="cat-toggle-left">
-              <span class="cat-toggle-name">技术类</span>
-              <span class="cat-toggle-desc">代码、架构与工程实践</span>
-            </div>
-            <div class="cat-toggle-right">
-              <span class="cat-toggle-count">3 篇</span>
-              <svg class="cat-chevron open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-            </div>
-          </div>
-          <div class="cat-body open">
-            <div class="cat-body-inner">
-              <div class="proj-block">
-                <div class="proj-toggle" onclick="toggleProj(this)">
-                  <svg class="proj-chevron open" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-                  <span class="proj-toggle-name">Electron + Prisma</span>
-                  <span class="proj-toggle-count">2 篇</span>
-                </div>
-                <div class="proj-body open">
-                  <div class="proj-body-inner">
-                    <div class="article-list">
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.07.28</div>
-                        <h3 class="article-title">Electron + Prisma 桌面应用开发实践</h3>
-                        <p class="article-summary">用 Electron 结合 Prisma 构建本地优先的桌面应用，探索离线数据同步、跨平台打包分发与原生菜单集成的最佳实践。</p>
-                        <div class="article-tags"><span class="article-tag">Electron</span><span class="article-tag">桌面应用</span></div>
-                      </a>
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.06.23</div>
-                        <h3 class="article-title">用 Prisma 构建类型安全的 API 层</h3>
-                        <p class="article-summary">Prisma 不只是一个 ORM，更是一套端到端的类型安全方案。分享在 Node.js 后端中从建模到查询的实践经验。</p>
-                        <div class="article-tags"><span class="article-tag">Prisma</span><span class="article-tag">TypeScript</span></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="proj-block">
-                <div class="proj-toggle" onclick="toggleProj(this)">
-                  <svg class="proj-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-                  <span class="proj-toggle-name">Java 电商系统</span>
-                  <span class="proj-toggle-count">1 篇</span>
-                </div>
-                <div class="proj-body">
-                  <div class="proj-body-inner">
-                    <div class="article-list">
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.06.30</div>
-                        <h3 class="article-title">Java 电商系统的架构演进</h3>
-                        <p class="article-summary">从单体到微服务，一个 Java 电商系统在高并发秒杀场景下的架构演进、缓存策略与踩坑记录。</p>
-                        <div class="article-tags"><span class="article-tag">Java</span><span class="article-tag">架构</span></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
-        <div class="cat-block" id="cat-product">
-          <div class="cat-toggle" onclick="toggleCat(this)">
-            <div class="cat-toggle-left">
-              <span class="cat-toggle-name">产品概念</span>
-              <span class="cat-toggle-desc">产品设计思考与概念探索</span>
-            </div>
-            <div class="cat-toggle-right">
-              <span class="cat-toggle-count">2 篇</span>
-              <svg class="cat-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-            </div>
-          </div>
-          <div class="cat-body">
-            <div class="cat-body-inner">
-              <div class="proj-block">
-                <div class="proj-toggle" onclick="toggleProj(this)">
-                  <svg class="proj-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-                  <span class="proj-toggle-name">英语学习产品</span>
-                  <span class="proj-toggle-count">1 篇</span>
-                </div>
-                <div class="proj-body">
-                  <div class="proj-body-inner">
-                    <div class="article-list">
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.07.07</div>
-                        <h3 class="article-title">英语学习产品的设计思考</h3>
-                        <p class="article-summary">从用户调研到 MVP 上线，一款英语学习产品在交互设计、记忆曲线算法与内容策略上的取舍与迭代过程。</p>
-                        <div class="article-tags"><span class="article-tag">产品设计</span><span class="article-tag">MVP</span></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="proj-block">
-                <div class="proj-toggle" onclick="toggleProj(this)">
-                  <svg class="proj-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-                  <span class="proj-toggle-name">用户反馈系统</span>
-                  <span class="proj-toggle-count">1 篇</span>
-                </div>
-                <div class="proj-body">
-                  <div class="proj-body-inner">
-                    <div class="article-list">
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.06.16</div>
-                        <h3 class="article-title">从用户反馈到功能迭代</h3>
-                        <p class="article-summary">如何建立有效的用户反馈收集机制，并将零散的需求转化为有优先级的功能路线图，避免被噪音带偏产品方向。</p>
-                        <div class="article-tags"><span class="article-tag">用户体验</span><span class="article-tag">迭代</span></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
-        <div class="cat-block" id="cat-content">
-          <div class="cat-toggle" onclick="toggleCat(this)">
-            <div class="cat-toggle-left">
-              <span class="cat-toggle-name">内容创作</span>
-              <span class="cat-toggle-desc">内容策略与营销实践</span>
-            </div>
-            <div class="cat-toggle-right">
-              <span class="cat-toggle-count">2 篇</span>
-              <svg class="cat-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-            </div>
-          </div>
-          <div class="cat-body">
-            <div class="cat-body-inner">
-              <div class="proj-block">
-                <div class="proj-toggle" onclick="toggleProj(this)">
-                  <svg class="proj-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-                  <span class="proj-toggle-name">内容营销</span>
-                  <span class="proj-toggle-count">1 篇</span>
-                </div>
-                <div class="proj-body">
-                  <div class="proj-body-inner">
-                    <div class="article-list">
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.07.12</div>
-                        <h3 class="article-title">独立开发者的内容营销之路</h3>
-                        <p class="article-summary">独立开发者不缺技术能力，缺的是让别人看见自己的能力。分享从零搭建内容矩阵、选择平台与持续输出的实战经验。</p>
-                        <div class="article-tags"><span class="article-tag">内容策略</span><span class="article-tag">自媒体</span></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="proj-block">
-                <div class="proj-toggle" onclick="toggleProj(this)">
-                  <svg class="proj-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-                  <span class="proj-toggle-name">社群运营</span>
-                  <span class="proj-toggle-count">1 篇</span>
-                </div>
-                <div class="proj-body">
-                  <div class="proj-body-inner">
-                    <div class="article-list">
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.06.18</div>
-                        <h3 class="article-title">从0到1000粉丝的社群运营笔记</h3>
-                        <p class="article-summary">记录一个技术社群从冷启动到千人规模的全过程，关于种子用户获取、活跃度维护与价值沉淀的真实复盘。</p>
-                        <div class="article-tags"><span class="article-tag">社群运营</span><span class="article-tag">增长</span></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
-        <div class="cat-block" id="cat-cognition">
-          <div class="cat-toggle" onclick="toggleCat(this)">
-            <div class="cat-toggle-left">
-              <span class="cat-toggle-name">科技认知</span>
-              <span class="cat-toggle-desc">技术趋势与思考</span>
-            </div>
-            <div class="cat-toggle-right">
-              <span class="cat-toggle-count">2 篇</span>
-              <svg class="cat-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-            </div>
-          </div>
-          <div class="cat-body">
-            <div class="cat-body-inner">
-              <div class="proj-block">
-                <div class="proj-toggle" onclick="toggleProj(this)">
-                  <svg class="proj-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-                  <span class="proj-toggle-name">AI 与开发</span>
-                  <span class="proj-toggle-count">2 篇</span>
-                </div>
-                <div class="proj-body">
-                  <div class="proj-body-inner">
-                    <div class="article-list">
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.07.21</div>
-                        <h3 class="article-title">AI 辅助开发的真实效率边界</h3>
-                        <p class="article-summary">深度使用 AI 编程助手三个月后的复盘——哪些场景真正提效，哪些地方反而需要更多人工审查与架构判断。</p>
-                        <div class="article-tags"><span class="article-tag">AI</span><span class="article-tag">开发效率</span></div>
-                      </a>
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.06.10</div>
-                        <h3 class="article-title">大模型时代的编程范式变迁</h3>
-                        <p class="article-summary">从手写每一行代码到与 AI 协作生成，编程的本质正在发生变化。探讨提示工程、意图表达与人类开发者角色重塑。</p>
-                        <div class="article-tags"><span class="article-tag">AI</span><span class="article-tag">技术哲学</span></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
-        <div class="cat-block" id="cat-opc">
-          <div class="cat-toggle" onclick="toggleCat(this)">
-            <div class="cat-toggle-left">
-              <span class="cat-toggle-name">OPC 相关</span>
-              <span class="cat-toggle-desc">一人公司创业与实践</span>
-            </div>
-            <div class="cat-toggle-right">
-              <span class="cat-toggle-count">2 篇</span>
-              <svg class="cat-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-            </div>
-          </div>
-          <div class="cat-body">
-            <div class="cat-body-inner">
-              <div class="proj-block">
-                <div class="proj-toggle" onclick="toggleProj(this)">
-                  <svg class="proj-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-                  <span class="proj-toggle-name">一人公司实践</span>
-                  <span class="proj-toggle-count">1 篇</span>
-                </div>
-                <div class="proj-body">
-                  <div class="proj-body-inner">
-                    <div class="article-list">
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.07.14</div>
-                        <h3 class="article-title">一人公司的第一年：从兼职到全职</h3>
-                        <p class="article-summary">记录独立开发者转型一人公司的第一年，关于收入结构搭建、时间管理与心态调整的真实感受和踩过的坑。</p>
-                        <div class="article-tags"><span class="article-tag">创业</span><span class="article-tag">一人公司</span></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="proj-block">
-                <div class="proj-toggle" onclick="toggleProj(this)">
-                  <svg class="proj-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-                  <span class="proj-toggle-name">工具与效率</span>
-                  <span class="proj-toggle-count">1 篇</span>
-                </div>
-                <div class="proj-body">
-                  <div class="proj-body-inner">
-                    <div class="article-list">
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.06.05</div>
-                        <h3 class="article-title">独立开发者的工具链搭建</h3>
-                        <p class="article-summary">一个人就是一支团队，工具的选择直接决定效率上限。分享从代码托管、CI/CD 到项目管理与内容生产的全套工具链。</p>
-                        <div class="article-tags"><span class="article-tag">工具</span><span class="article-tag">效率</span></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
-        <div class="cat-block" id="cat-finance">
-          <div class="cat-toggle" onclick="toggleCat(this)">
-            <div class="cat-toggle-left">
-              <span class="cat-toggle-name">财税法务</span>
-              <span class="cat-toggle-desc">合规、知识产权与著作权</span>
-            </div>
-            <div class="cat-toggle-right">
-              <span class="cat-toggle-count">2 篇</span>
-              <svg class="cat-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-            </div>
-          </div>
-          <div class="cat-body">
-            <div class="cat-body-inner">
-              <div class="proj-block">
-                <div class="proj-toggle" onclick="toggleProj(this)">
-                  <svg class="proj-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-                  <span class="proj-toggle-name">税务合规</span>
-                  <span class="proj-toggle-count">1 篇</span>
-                </div>
-                <div class="proj-body">
-                  <div class="proj-body-inner">
-                    <div class="article-list">
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.07.03</div>
-                        <h3 class="article-title">个人开发者如何处理税务问题</h3>
-                        <p class="article-summary">独立收入来源复杂，税务处理不当可能埋下隐患。梳理个人开发者常见的收入类型、申报方式与合理节税思路。</p>
-                        <div class="article-tags"><span class="article-tag">税务</span><span class="article-tag">合规</span></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="proj-block">
-                <div class="proj-toggle" onclick="toggleProj(this)">
-                  <svg class="proj-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-                  <span class="proj-toggle-name">知识产权</span>
-                  <span class="proj-toggle-count">1 篇</span>
-                </div>
-                <div class="proj-body">
-                  <div class="proj-body-inner">
-                    <div class="article-list">
-                      <a href="blog-detail.html" class="article-entry" style="text-decoration:none;display:block;">
-                        <div class="article-date">2026.06.12</div>
-                        <h3 class="article-title">软件著作权的登记与保护</h3>
-                        <p class="article-summary">软著不仅是资质，更是维权的底气。详解软件著作权登记流程、所需材料以及在实际维权中的作用与局限。</p>
-                        <div class="article-tags"><span class="article-tag">著作权</span><span class="article-tag">知识产权</span></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      
-      <section class="blog-section" style="margin-top:64px;text-align:center;padding-bottom:16px;">
-        <a class="cta-btn" data-dom-id="cta-start-learning" href="blog-detail.html">查看博客详情</a>
-      </section>
     </main>
 
     
@@ -847,11 +596,11 @@
             <h6 style="font-size:11px;font-weight:500;color:var(--ljc-neutral-400);letter-spacing:0.08em;text-transform:uppercase;margin:0 0 16px;">渠道</h6>
             <a href="mailto:contact@laijiacheng.dev" data-dom-id="footer-contact" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">邮件联系</a>
             <a href="https://www.zhihu.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">知乎 @赖嘉诚</a>
+              <a href="https://space.bilibili.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">B站 @赖嘉诚</a>
               <a href="https://www.douyin.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">抖音 @赖嘉诚</a>
               <a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">小红书 @赖嘉诚</a>
               <a href="https://github.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">GitHub @LaiJiaCheng</a>
-              <a href="https://space.bilibili.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">B站 @赖嘉诚</a>
-            <span style="display:block;font-size:13px;color:var(--ljc-neutral-500);margin-bottom:8px;">QQ群 · 2个</span>
+            <span style="display:block;font-size:13px;color:var(--ljc-neutral-500);margin-bottom:8px;">QQ群 · 3个</span>
             <span style="display:block;font-size:13px;color:var(--ljc-neutral-500);margin-bottom:8px;">微信公众号 赖嘉诚OPC</span>
           </div>
         </div>
@@ -867,14 +616,14 @@
       function toggleCat(el) {
         var chevron = el.querySelector('.cat-chevron');
         var body = el.nextElementSibling;
-        chevron.classList.toggle('open');
-        body.classList.toggle('open');
+        if (chevron) chevron.classList.toggle('open');
+        if (body) body.classList.toggle('open');
       }
       function toggleProj(el) {
         var chevron = el.querySelector('.proj-chevron');
         var body = el.nextElementSibling;
-        chevron.classList.toggle('open');
-        body.classList.toggle('open');
+        if (chevron) chevron.classList.toggle('open');
+        if (body) body.classList.toggle('open');
       }
       document.querySelectorAll('.tag-pill[href^="#cat-"]').forEach(function(pill) {
         pill.addEventListener('click', function(e) {
