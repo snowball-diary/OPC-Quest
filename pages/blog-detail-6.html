@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-dom-id="bd-page-title">I+1Quest介绍 - 博客</title>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" >
+    <style id="theme-vars">
+/* ============================================================
+   OPC 大航海 · 软萌唯美设计系统
+   Soft × Aesthetic Design System
+   淡粉 + 淡蓝 + 纯白 · 无边框 · 大留白 · 柔和圆角
+   ============================================================ */
+
+/* ---- Brand Token Scale ---- */
+:root {
+  /* Primary: Soft Pink — 淡粉 */
+  --ljc-pink-50: #FFF5F8;
+  --ljc-pink-100: #FFE4EC;
+  --ljc-pink-200: #FFD1DC;
+  --ljc-pink-300: #FFB5C8;
+  --ljc-pink-400: #FF9BB0;
+  --ljc-pink-500: #F0A5B8;
+  --ljc-pink-600: #D88BA0;
+
+  /* Secondary: Soft Blue — 淡蓝 */
+  --ljc-blue-50: #F0F6FC;
+  --ljc-blue-100: #D9EBF7;
+  --ljc-blue-200: #C5DBF0;
+  --ljc-blue-300: #A5C5E5;
+  --ljc-blue-400: #8AB0D8;
+  --ljc-blue-500: #6E9BCB;
+
+  /* Accent: Soft Lavender — 淡紫 */
+  --ljc-lavender-50: #F5F0FA;
+  --ljc-lavender-100: #E8D5F0;
+  --ljc-lavender-200: #D4C5E2;
+
+  /* Neutral: Warm White Scale */
+  --ljc-neutral-0: #FFFFFF;
+  --ljc-neutral-50: #FEFCFD;
+  --ljc-neutral-100: #F9F7FB;
+  --ljc-neutral-200: #F2F0F5;
+  --ljc-neutral-300: #E8E5EE;
+  --ljc-neutral-400: #B8B5C5;
+  --ljc-neutral-500: #928FA5;
+  --ljc-neutral-600: #6E6B85;
+  --ljc-neutral-700: #52505E;
+  --ljc-neutral-800: #3A3848;
+  --ljc-neutral-900: #28263A;
+
+  /* State colors — soft variants */
+  --ljc-state-success: #8BC4A0;
+  --ljc-state-success-soft: #EAF5EE;
+  --ljc-state-warning: #F0C674;
+  --ljc-state-warning-soft: #FFF5E0;
+  --ljc-state-error: #E8A0A0;
+  --ljc-state-error-soft: #FCEDED;
+  --ljc-state-info: #A5C5E5;
+  --ljc-state-info-soft: #F0F6FC;
+
+  /* Radius — soft and rounded */
+  --ljc-radius-small: 8px;
+  --ljc-radius-medium: 12px;
+  --ljc-radius-large: 16px;
+  --ljc-radius-full: 9999px;
+}
+
+/* ---- Semantic Aliases (Light Mode) ---- */
+:root {
+  --ljc-background: var(--ljc-neutral-0);
+  --ljc-foreground: var(--ljc-neutral-700);
+  --ljc-card: var(--ljc-neutral-0);
+  --ljc-card-foreground: var(--ljc-neutral-700);
+  --ljc-popover: var(--ljc-neutral-0);
+  --ljc-popover-foreground: var(--ljc-neutral-700);
+  --ljc-primary: var(--ljc-pink-300);
+  --ljc-primary-foreground: var(--ljc-neutral-0);
+  --ljc-secondary: var(--ljc-blue-300);
+  --ljc-secondary-foreground: var(--ljc-neutral-0);
+  --ljc-muted: var(--ljc-neutral-100);
+  --ljc-muted-foreground: var(--ljc-neutral-400);
+  --ljc-border: var(--ljc-neutral-200);
+  --ljc-input: var(--ljc-neutral-200);
+  --ljc-ring: var(--ljc-pink-300);
+  --ljc-accent: var(--ljc-pink-400);
+  --ljc-accent-soft: var(--ljc-pink-100);
+  --ljc-highlight: var(--ljc-pink-50);
+  --ljc-secondary-soft: var(--ljc-blue-50);
+}
+
+/* ---- Typography ---- */
+:root {
+  --ljc-font-display: 'LXGW WenKai', 'Quicksand', 'PingFang SC', -apple-system, 'Microsoft YaHei', sans-serif;
+  --ljc-font-body: 'LXGW WenKai', 'Quicksand', 'PingFang SC', -apple-system, 'Microsoft YaHei', sans-serif;
+  --ljc-font-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+}
+
+.font-display { font-family: var(--ljc-font-display); font-weight: 500; }
+.font-body { font-family: var(--ljc-font-body); font-weight: 400; }
+.font-mono { font-family: var(--ljc-font-mono); }
+
+/* ---- Surface Depth Model ---- */
+:root {
+  --ljc-shadow-xs: 0 1px 2px rgba(180, 170, 200, 0.02);
+  --ljc-shadow-sm: 0 2px 8px rgba(180, 170, 200, 0.03);
+  --ljc-shadow-md: 0 4px 16px rgba(180, 170, 200, 0.04);
+  --ljc-shadow-lg: 0 8px 24px rgba(180, 170, 200, 0.05);
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--ljc-background);
+    --color-foreground: var(--ljc-foreground);
+    --color-card: var(--ljc-card);
+    --color-card-foreground: var(--ljc-card-foreground);
+    --color-popover: var(--ljc-popover);
+    --color-popover-foreground: var(--ljc-popover-foreground);
+    --color-primary: var(--ljc-primary);
+    --color-primary-foreground: var(--ljc-primary-foreground);
+    --color-secondary: var(--ljc-secondary);
+    --color-secondary-foreground: var(--ljc-secondary-foreground);
+    --color-muted: var(--ljc-muted);
+    --color-muted-foreground: var(--ljc-muted-foreground);
+    --color-accent: var(--ljc-accent);
+    --color-border: var(--ljc-border);
+    --color-input: var(--ljc-input);
+    --color-ring: var(--ljc-ring);
+    --radius-sm: var(--ljc-radius-small);
+    --radius-md: var(--ljc-radius-medium);
+    --radius-lg: var(--ljc-radius-large);
+  }
+  @layer base {
+    body { background: var(--ljc-background); color: var(--ljc-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--ljc-background); }
+      .text-background { color: var(--ljc-background); }
+      .border-background { border-color: var(--ljc-background); }
+      .ring-background { --tw-ring-color: var(--ljc-background); }
+      .bg-foreground { background-color: var(--ljc-foreground); }
+      .text-foreground { color: var(--ljc-foreground); }
+      .border-foreground { border-color: var(--ljc-foreground); }
+      .ring-foreground { --tw-ring-color: var(--ljc-foreground); }
+      .bg-card { background-color: var(--ljc-card); }
+      .text-card { color: var(--ljc-card); }
+      .border-card { border-color: var(--ljc-card); }
+      .ring-card { --tw-ring-color: var(--ljc-card); }
+      .bg-card-foreground { background-color: var(--ljc-card-foreground); }
+      .text-card-foreground { color: var(--ljc-card-foreground); }
+      .border-card-foreground { border-color: var(--ljc-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--ljc-card-foreground); }
+      .bg-popover { background-color: var(--ljc-popover); }
+      .text-popover { color: var(--ljc-popover); }
+      .border-popover { border-color: var(--ljc-popover); }
+      .ring-popover { --tw-ring-color: var(--ljc-popover); }
+      .bg-popover-foreground { background-color: var(--ljc-popover-foreground); }
+      .text-popover-foreground { color: var(--ljc-popover-foreground); }
+      .border-popover-foreground { border-color: var(--ljc-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--ljc-popover-foreground); }
+      .bg-primary { background-color: var(--ljc-primary); }
+      .text-primary { color: var(--ljc-primary); }
+      .border-primary { border-color: var(--ljc-primary); }
+      .ring-primary { --tw-ring-color: var(--ljc-primary); }
+      .bg-primary-foreground { background-color: var(--ljc-primary-foreground); }
+      .text-primary-foreground { color: var(--ljc-primary-foreground); }
+      .border-primary-foreground { border-color: var(--ljc-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--ljc-primary-foreground); }
+      .bg-secondary { background-color: var(--ljc-secondary); }
+      .text-secondary { color: var(--ljc-secondary); }
+      .border-secondary { border-color: var(--ljc-secondary); }
+      .ring-secondary { --tw-ring-color: var(--ljc-secondary); }
+      .bg-secondary-foreground { background-color: var(--ljc-secondary-foreground); }
+      .text-secondary-foreground { color: var(--ljc-secondary-foreground); }
+      .border-secondary-foreground { border-color: var(--ljc-secondary-foreground); }
+      .ring-secondary-foreground { --tw-ring-color: var(--ljc-secondary-foreground); }
+      .bg-muted { background-color: var(--ljc-muted); }
+      .text-muted { color: var(--ljc-muted); }
+      .border-muted { border-color: var(--ljc-muted); }
+      .ring-muted { --tw-ring-color: var(--ljc-muted); }
+      .bg-muted-foreground { background-color: var(--ljc-muted-foreground); }
+      .text-muted-foreground { color: var(--ljc-muted-foreground); }
+      .border-muted-foreground { border-color: var(--ljc-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--ljc-muted-foreground); }
+      .bg-accent { background-color: var(--ljc-accent); }
+      .text-accent { color: var(--ljc-accent); }
+      .border-accent { border-color: var(--ljc-accent); }
+      .ring-accent { --tw-ring-color: var(--ljc-accent); }
+      .bg-border { background-color: var(--ljc-border); }
+      .text-border { color: var(--ljc-border); }
+      .border-border { border-color: var(--ljc-border); }
+      .ring-border { --tw-ring-color: var(--ljc-border); }
+      .bg-input { background-color: var(--ljc-input); }
+      .text-input { color: var(--ljc-input); }
+      .border-input { border-color: var(--ljc-input); }
+      .ring-input { --tw-ring-color: var(--ljc-input); }
+      .bg-ring { background-color: var(--ljc-ring); }
+      .text-ring { color: var(--ljc-ring); }
+      .border-ring { border-color: var(--ljc-ring); }
+      .ring-ring { --tw-ring-color: var(--ljc-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+    <style id="code-highlight-theme">
+      /* Custom Prism theme — soft-cute palette */
+      code[class*="language-"], pre[class*="language-"] {
+        font-family: var(--ljc-font-mono);
+        font-size: 13px;
+        line-height: 1.7;
+        tab-size: 2;
+        text-shadow: none;
+      }
+      pre[class*="language-"] {
+        background: var(--ljc-neutral-100);
+        border-radius: var(--ljc-radius-medium);
+        padding: 20px 24px;
+        margin: 0 0 24px;
+        overflow-x: auto;
+        box-shadow: var(--ljc-shadow-sm);
+      }
+      :not(pre) > code[class*="language-"] {
+        background: var(--ljc-pink-50);
+        color: var(--ljc-pink-600);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      .token.comment, .token.prolog, .token.doctype, .token.cdata { color: var(--ljc-neutral-400); font-style: italic; }
+      .token.punctuation { color: var(--ljc-neutral-500); }
+      .token.property, .token.tag, .token.boolean, .token.constant, .token.symbol { color: var(--ljc-pink-500); }
+      .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: var(--ljc-state-success); }
+      .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string { color: var(--ljc-neutral-600); }
+      .token.atrule, .token.attr-value, .token.keyword { color: var(--ljc-pink-500); font-weight: 500; }
+      .token.function, .token.class-name { color: var(--ljc-blue-500); }
+      .token.regex, .token.important, .token.variable { color: var(--ljc-pink-400); }
+      .token.number { color: var(--ljc-pink-400); }
+      .token.important, .token.bold { font-weight: bold; }
+      .token.italic { font-style: italic; }
+    </style>
+    <style id="page-layout">
+      .article-container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+      .article-back { transition: color .2s ease; }
+      .article-back:hover { color: var(--ljc-pink-400); }
+
+      /* ===== Three-column grid: TOC + Article + Sidebar ===== */
+      .detail-grid {
+        display: grid;
+        grid-template-columns: 200px 1fr 260px;
+        gap: 40px;
+        align-items: start;
+      }
+
+      /* ===== TOC sidebar ===== */
+      .toc-sidebar { position: sticky; top: 80px; }
+      .toc-label {
+        font-size: 11px; font-weight: 500; color: var(--ljc-neutral-400);
+        letter-spacing: 0.1em; margin-bottom: 14px; text-transform: uppercase;
+        font-family: var(--ljc-font-body);
+      }
+      .toc-nav { display: flex; flex-direction: column; gap: 2px; }
+      .toc-link {
+        font-size: 13px; color: var(--ljc-neutral-500); text-decoration: none;
+        padding: 7px 14px; border-radius: var(--ljc-radius-small);
+        transition: all .15s ease; line-height: 1.5;
+        border-left: 2px solid transparent; display: block;
+        font-family: var(--ljc-font-body);
+      }
+      .toc-link:hover { color: var(--ljc-pink-500); background: var(--ljc-pink-50); }
+      .toc-link.active {
+        color: var(--ljc-pink-500); border-left-color: var(--ljc-pink-300);
+        background: var(--ljc-pink-50); font-weight: 500;
+      }
+
+      /* ===== Article main column ===== */
+      .article-body { font-family: var(--ljc-font-body); }
+      .article-body p { font-size: 15px; color: var(--ljc-neutral-600); line-height: 1.85; margin: 0 0 20px; }
+      .article-body h2 {
+        font-family: var(--ljc-font-display); font-size: 22px; font-weight: 500;
+        color: var(--ljc-neutral-700); margin: 44px 0 16px; letter-spacing: -0.01em;
+        scroll-margin-top: 80px;
+      }
+      .article-body h3 {
+        font-family: var(--ljc-font-display); font-size: 18px; font-weight: 500;
+        color: var(--ljc-neutral-700); margin: 32px 0 12px;
+        scroll-margin-top: 80px;
+      }
+      .article-body ul { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 10px; }
+      .article-body li { font-size: 15px; color: var(--ljc-neutral-600); line-height: 1.7; padding-left: 20px; position: relative; }
+      .article-body li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--ljc-pink-200); }
+      .article-body blockquote { margin: 0 0 24px; padding: 16px 20px; background: var(--ljc-pink-50); border-radius: var(--ljc-radius-medium); font-size: 14px; color: var(--ljc-neutral-600); line-height: 1.7; }
+
+      /* ===== Right sidebar: video + resources ===== */
+      .resource-sidebar { position: sticky; top: 80px; }
+      .sidebar-video {
+        width: 100%; aspect-ratio: 16/9;
+        background: linear-gradient(135deg, var(--ljc-pink-50), var(--ljc-blue-50));
+        border-radius: var(--ljc-radius-medium);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; transition: box-shadow .2s ease;
+        position: relative; overflow: hidden;
+      }
+      .sidebar-video:hover { box-shadow: var(--ljc-shadow-md); }
+      .video-play-btn {
+        width: 48px; height: 48px; border-radius: 50%;
+        background: rgba(255,255,255,0.85);
+        display: flex; align-items: center; justify-content: center;
+        backdrop-filter: blur(8px); transition: transform .2s ease;
+      }
+      .sidebar-video:hover .video-play-btn { transform: scale(1.08); }
+      .sidebar-label {
+        font-size: 13px; font-weight: 500; color: var(--ljc-neutral-700);
+        font-family: var(--ljc-font-display); margin-bottom: 14px;
+      }
+      .resource-card {
+        display: flex; align-items: center; gap: 12px;
+        padding: 12px 14px; border-radius: var(--ljc-radius-medium);
+        background: var(--ljc-neutral-0); text-decoration: none;
+        transition: background .2s ease;
+      }
+      .resource-card:hover { background: var(--ljc-pink-50); }
+      .resource-card-title { font-size: 13px; font-weight: 500; color: var(--ljc-neutral-700); }
+      .resource-card-desc { font-size: 11px; color: var(--ljc-neutral-400); margin-top: 2px; }
+
+      .tag-pill { display: inline-block; font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: var(--ljc-radius-full); background: var(--ljc-pink-50); color: var(--ljc-pink-500); }
+      .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+      .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+
+      @media (max-width: 900px) {
+        .detail-grid { grid-template-columns: 1fr; gap: 32px; }
+        .toc-sidebar { position: static; order: 1; }
+        .article-main { order: 2; }
+        .resource-sidebar { position: static; order: 3; }
+      }
+      @media (max-width: 640px) {
+        .article-container { padding: 0 16px; }
+        .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+        .footer-bottom { flex-direction: column; gap: 8px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .sidebar-video, .video-play-btn, .resource-card, .article-back { transition: none; }
+        .sidebar-video:hover .video-play-btn { transform: none; }
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased" style="font-family:var(--ljc-font-body);background:var(--ljc-blue-100);color:var(--ljc-foreground);">
+
+    
+    <nav style="background:rgba(255,255,255,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;">
+      <div style="max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;"><a href="index.html" data-dom-id="nav-home" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
+  <span style="width:8px;height:8px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
+  <span style="font-size:15px;font-weight:500;color:var(--ljc-neutral-700);letter-spacing:0.01em;">赖嘉诚</span>
+  <span style="font-size:11px;color:var(--ljc-neutral-400);letter-spacing:0.05em;">OPC 大航海</span>
+</a>
+        <div style="display:flex;align-items:center;gap:2px;">
+          <a href="index.html" data-dom-id="nav-index" data-nav-key="index" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">首页</a>
+          <a href="blog-categorized.html" data-dom-id="nav-blog" data-nav-key="blog" data-active="true" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:500;color:var(--ljc-pink-500);background:var(--ljc-pink-100);">博客</a>
+          <a href="portfolio.html" data-dom-id="nav-portfolio" data-nav-key="portfolio" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">作品集</a>
+          <a href="contact.html" data-dom-id="nav-contact" data-nav-key="contact" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">联系</a>
+        </div></div>
+    </nav>
+
+    <main style="background:var(--ljc-blue-50);">
+      
+      <div class="article-container" style="padding-top:24px;">
+        <a href="blog-categorized.html" data-dom-id="back-blog" class="article-back" style="font-size:13px;color:var(--ljc-neutral-400);text-decoration:none;">← 返回博客</a>
+      </div>
+
+      
+      <div class="article-container" style="padding-top:40px;">
+        <div data-dom-id="bd-tags" style="display:flex;gap:8px;margin-bottom:16px;"><span class="tag-pill">英语</span><span class="tag-pill">游戏</span><span class="tag-pill">故事</span></div>
+        <h1 data-dom-id="bd-title" style="font-size:32px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 12px;font-family:var(--ljc-font-display);">I+1Quest介绍</h1>
+        <div data-dom-id="bd-meta" style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ljc-neutral-400);"><span>赖嘉诚</span>
+          <span style="width:3px;height:3px;border-radius:50%;background:var(--ljc-neutral-300);display:inline-block;"></span>
+          <span style="font-family:var(--ljc-font-mono);">2026.08.02</span>
+          <span style="width:3px;height:3px;border-radius:50%;background:var(--ljc-neutral-300);display:inline-block;"></span>
+          <span>约 15 分钟</span></div>
+      </div>
+
+      
+      <div class="article-container" style="padding-top:48px;padding-bottom:64px;">
+        <div class="detail-grid">
+
+          
+          <aside class="toc-sidebar">
+            <div class="toc-label">目录</div>
+            <nav class="toc-nav"><a href="#sec-0-uzhm" class="toc-link active">我把AI时代的顶级英语学习方法，开发成了一款游戏</a>
+              <a href="#sec-23-4tgv" class="toc-link">英语课教会了我们什么</a>
+              <a href="#sec-43-dia5" class="toc-link">I+1可理解输入学说</a>
+              <a href="#sec-71-sys0" class="toc-link">但问题是——去哪里找&amp;quot;刚刚好&amp;quot;的材料？</a>
+              <a href="#sec-81-8psp" class="toc-link">所以我做了这个东西</a>
+              <a href="#sec-96-yd4r" class="toc-link">目前做到什么程度了</a>
+              <a href="#sec-111-kaif" class="toc-link">写在最后</a></nav>
+          </aside>
+
+          
+          <div class="article-main">
+            <div class="article-body"><h2 id="sec-0-uzhm" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">我把AI时代的顶级英语学习方法，开发成了一款游戏</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">一款智能匹配你英语水平的无限剧情RPG</p>
+<hr style="border:none;border-top:1px solid var(--ljc-neutral-200);margin:24px 0;" >
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">我相信，这篇文章会彻底改变你的英语学习现状，重新塑造你对语言学习的理解。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">能点进来看，说明你来对地方了，我们是同一类人，至少我们都不喜欢应试的英语，希望换一种更愉快的方式学会一门语言——</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">比如在端午节期间，你沉迷于一款游戏，一款能够持续生成匹配我们英语水平的、可以自定义剧情角色的RPG冒险游戏，带着在异世界开挂升级的喜悦，你和朋友一起，爽玩三天三夜，然后拿下之后的英语考试</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">——而目前市面上没有任何工具真正考虑过我们语言学习方面的娱乐需要。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">很多人都听过吃得苦中苦方为人上人的道理，但痛苦并不会让我们进步，它只会让你变成M（doge</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">缺少快乐激励，长期坚持将会是一件反人类的事情</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">如果能快乐学习，谁不想呢？学习本身，就应当是一件快乐的事情：人类文明从刀耕火种的原始社会发展到AI时代，依靠的是写在基因底层的学习快乐代码，学习如果没有快乐反馈，人类早灭绝了</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">所以如果学习已经让你感到疲惫、厌烦，想要逃避，这只能说明你没有找到正确的方法，没有搞清楚到底想学什么，或者你在周围环境的影响下根本不适合学习。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">从初中到高中，再到大学，我们学了14年英语，而方法论，从小学最初接触英语开始，几乎就没变过——背几个单词、背课文、刷刷阅读题、刷听力。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">在此方法基础上，百家争鸣，各大流派花式魔改，尝试为背单词本身增添一些趣味性，但还是逃不掉背背背背背的底层逻辑。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">算法流派：百词斩、不背单词、墨墨背单词、扇贝。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">纸媒流派：原著小说，学校订的报纸，标记单词笔记。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">词典流派：abandon。a-ban-don。abandon。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">记忆流派：词根词缀、图像联想、记忆宫殿。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">以上所有流派，我知道会有很多大神打通关过，那你是真的强；不过我是个普通玩家，在高中的学习中，每一种流派我都尝试过——每一个方法我都坚持不了两周。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">如果你也是这种情况，请别担心，因为这并不是我们没有毅力；相反，是这套词汇语法背诵为王的语言学习系统，在AI时代，该退出历史舞台了。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">我不会现在就直接丢给你一个最强的语言学习结论，然后放上游戏下载链接，然后就文章结束万事大吉了，这不负责，我希望你可以在我们接下来的交流中，自然地构想出一幅语言学习的理想愿景，然后亲自体验我朝着这幅愿景迈出的第一步尝试——理解清楚语言学习背后的第一性原理，才能让我们在复利的路上一起走得更远。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">而在此之前，我想先和你探讨一个更重要的问题——</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">人到底是怎么学会一门语言的？</strong></p>
+<hr style="border:none;border-top:1px solid var(--ljc-neutral-200);margin:24px 0;" >
+<h2 id="sec-23-4tgv" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">英语课教会了我们什么</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">回想一下你的英语课堂。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">老师在讲台上花45分钟，用纯正的中文解释定语从句的用法，你记了满满一页笔记。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">下节课老师又开始用纯正的中文讲语言点、固定搭配，你又记了一页。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">课间休息的时候又有勤奋好学的同学上去问：老师老师，这里为什么要用 that 不用 which 啊？</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">一学期下来，笔记记了几本，考试遇到题目，你不会。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">你勤奋地反复背诵着单词拼写、语言点、固定搭配、语法句式，每天早上背30个，晚上还能记住的不到5个，一周过后还有1个就不错了。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">在考试里真正遇到这些词的时候，脑子里自动浮现的不是它的意思，而是你曾经联想记忆过的什么稀奇古怪的谐音和场景，ambulance ，俺不能死，为什么不能死，哦，在救护车上，所以是救护车的意思。</p>
+<pre style="background:var(--ljc-neutral-100);padding:16px 20px;border-radius:var(--ljc-radius-medium);overflow-x:auto;margin:0 0 20px;"><code class="language-">ambulance ，俺不能死，为什么不能死，哦，在路上，还能抢救一会，所以是救护车的意思，那这句话应该是在说救护车怎么了，按照文章主题，和救护车无关，排除这个选项，选B......</code></pre>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">而班上那些英语真正好的人，他们根本不干这些事，他们甚至连英语课都不上。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">我高中的时候请教过那些英语140+的同学。他们的共同点不是刷题多，也不是笔记记得好——而是他们在高中之前，曾经通过特殊的方式<strong style="color:var(--ljc-neutral-700);font-weight:600;">进行过词汇的原始积累，通过各种方式读过大量英文材料</strong>。有的是从小看英文动画片美剧长大的，有的是财大气粗家里请了外教陪读，有的干脆就是国际学校出身，从小浸泡在英语环境里。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">你问他们怎么学的，他们只会告诉你&quot;多读多听多看就好了&quot;。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">这句话正确吗？完全正确。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">有用吗？一句废话。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">因为你根本不知道该读什么、该听什么。我都努力背单词背到吐了，你还让我自己找课外材料读？</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">翻开一本英文原著，前三页写满了生词注释，后面几百页崭新如初。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">打开一段英文播客，听了五分钟一个字都没听懂，默默关掉。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">就算偶然找到能搞懂的材料，比如小猪佩奇，也会觉得很没有意思，看个一会就不想看了，不如去刷手机。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">你找不到适合自己的输入。</strong></p>
+<hr style="border:none;border-top:1px solid var(--ljc-neutral-200);margin:24px 0;" >
+<h2 id="sec-43-dia5" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">I+1可理解输入学说</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">讲个故事。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">1974年，一个日本小女孩跟着家人来到纽约。她的邻居恰好是一位语言学教授。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">教授想要教她英语。他拿起一个皮球，说&quot;这是个皮球，请跟我一起说&#39;ball&#39;&quot;。小女孩一声不吭。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">他又说&quot;快点跟我一起说&#39;ball&#39;，不然我不给你玩了&quot;。小女孩还是沉默。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">第一周，没有说一句话。第二周，没有说一句话。第一个月，第二个月，小女孩依然沉默。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">教授放弃了教她单词，任由她每天随意听着周围人的英语对话。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">五个月后，小女孩突然开始开口说话了。而且一开口，她的英语口语就迅速追上了同龄的美国孩子。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">这位教授就是大名鼎鼎的Stephen Krashen，后来他反复研究这个案例，提出了一个在语言学界引发地震的理论——<strong style="color:var(--ljc-neutral-700);font-weight:600;">可理解输入假说</strong>。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">核心观点就是一句话：</p>
+<blockquote style="margin:0 0 20px;padding:14px 18px;background:var(--ljc-pink-50);border-radius:var(--ljc-radius-medium);font-size:14px;color:var(--ljc-neutral-600);line-height:1.7;">
+<p style="margin:0;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">当我们理解了所接收到的外语信息时，语言习得会在潜意识中自动发生。</strong></p>
+</blockquote>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">不是靠背单词表记语言点，不是分析句子语法结构，不是做完形填空。是<strong style="color:var(--ljc-neutral-700);font-weight:600;">听懂</strong>，是<strong style="color:var(--ljc-neutral-700);font-weight:600;">读懂</strong>。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">当你通过上下文、语境、画面理解了一段外语的含义，你的大脑就在悄悄地建立词汇、语法和句式的长期记忆。这个过程是自动的、无意识的、必然的。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">他还提出了一个关键概念：<strong style="color:var(--ljc-neutral-700);font-weight:600;">i+1</strong>。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">&quot;i&quot;代表你当前的语言水平，&quot;+1&quot;代表比你的水平高一点点。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">材料太难</strong>，全是生词和陌生语法，信息就变成了噪音，大脑直接屏蔽输入。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">材料太简单</strong>，没有新内容，大脑没有成长的空间。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">材料刚好难一点</strong>——你能理解大部分内容，偶尔遇到几个生词，通过上下文能猜出来——这就是语言习得效率最高的状态，<strong style="color:var(--ljc-neutral-700);font-weight:600;">猜出来的单词就是你语言学习的增长点</strong>。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">你们班上英语最好的那个同学，当你焦头烂额地分析完形填空的时候，他总是能读一遍就把正确答案选出来。你去问他们怎么做到的，他们说&quot;就靠语感啊&quot;。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">这倒不是在装，他们是真的说不出来。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">因为语言能力的大部分，是隐性知识——你用得到，但说不清它是怎么来的。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">这位教授的研究团队后来追踪了大量类似的案例：</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">一个印尼的小伙子，从没学过语法知识，也没上过任何英语课，靠着刷YouTube视频，练就了一口流利的英语，在10岁时就用英语创作了大量的rap。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">一位韩国女士，从小学二年级水平的英文入门读物开始，一年读了66本书，英语能力发生了飞跃，而她自己几乎没有意识到自己正在&quot;学习英语&quot;。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">这些案例指向同一个结论：<strong style="color:var(--ljc-neutral-700);font-weight:600;">流利运用语言的前提不是语法知识，而是大量的可理解输入。</strong></p>
+<hr style="border:none;border-top:1px solid var(--ljc-neutral-200);margin:24px 0;" >
+<h2 id="sec-71-sys0" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">但问题是——去哪里找&quot;刚刚好&quot;的材料？</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">理论很美好，现实很骨感。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">我们平时能接触到的材料一般有什么？</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">可理解但非常无趣的</strong>：英语教材。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">有趣但完全看不懂的</strong>：美剧、英文电影、英文播客。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">无趣并且难以理解的</strong>：英语试卷。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">研究者自己也承认：对于绝大多数学习者来说，找到既有趣又刚好适合自己水平的可理解输入，是最大的难题。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">传统出版业无法解决这个问题，因为一本书印出来，难度和剧情就固定了。它不可能同时适合不同水平的人，也不可能满足玩家们千奇百怪的剧情口味。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">但如果内容不是印出来的，而是实时生成的呢？</strong></p>
+<hr style="border:none;border-top:1px solid var(--ljc-neutral-200);margin:24px 0;" >
+<h2 id="sec-81-8psp" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">所以我做了这个东西</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">我是赖嘉诚，滚雪球日记，是一名大一学生，没有任何编程基础。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">但我有一个想法：<strong style="color:var(--ljc-neutral-700);font-weight:600;">用AI生成一个永远匹配你水平的、永远有趣的、无限延续的英语故事。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">你设定一个你感兴趣的剧情——剑与魔法的中世纪冒险、赛博朋克世界、校园恋爱喜剧、末日生存探险——然后AI会根据你的英语水平，生成一段英文故事给你。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">你读这段故事，遇到不认识的词，猜不出来的话点一下旁边就能看到释义。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">你做一个选择——隐藏躲避还是谈判合作？信任这个NPC还是拔剑相向？AI会根据你的选择，继续生成接下来的剧情。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">这不是一本固定的书，而是一个永远在生长的故事。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">而且我加了一个关键功能：<strong style="color:var(--ljc-neutral-700);font-weight:600;">自定义词库</strong>。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">我知道有些同学有很强的目的性，你可以导入你们老师今天上课讲过的词汇、四六级考纲词汇、六级高频词、雅思核心词、托福真题单词——任何你想掌握的单词表。AI会在生成故事的过程中，自然地、反复地把你需要学的词编织进剧情里。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">你不需要背单词。你只需要读故事，单词会在不同的故事和游戏存档里反复出现，直到你自然地记住它们。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">就像你小时候学中文一样——你没有背过&quot;苹果&quot;这个词的定义，但你吃了无数次苹果，听了无数次&quot;苹果&quot;这个词，你自然而然就记住了。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">我还加了一个TTS语音朗读功能。你可以逐句点读，也可以整篇连听。一边看一边听，磨耳朵。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">整个产品的设计围绕一个原则：<strong style="color:var(--ljc-neutral-700);font-weight:600;">让你忘记自己在学英语。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">当你沉浸在一段精彩的剧情里，关心主角的命运胜过关心某个单词的意思——这时候，你的大脑正在用最高效的方式飞速地习得语言。</p>
+<hr style="border:none;border-top:1px solid var(--ljc-neutral-200);margin:24px 0;" >
+<h2 id="sec-96-yd4r" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">目前做到什么程度了</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">坦白说，作为一个学生，还要准备期末考试，现在的版本只是一个Demo。界面简陋，还有很多不完善的地方。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">但核心功能已经实现了：</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">剧情一致性系统</strong>——AI会记住你之前做过的每一个选择，确保故事前后连贯，永远不会出现&quot;昨天你救了一个人，三天之后那个人在故事里消失了&quot;的情况。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">伏笔与连锁反应</strong>——你做的某个选择，可能在十几个甚至几十个情节之后才显现出后果。就像真正的RPG游戏一样，有伏笔，有连锁反应。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">剧情回档</strong>——读得太快忘了前面的剧情？在回看界面，随时可以像读小说那样回翻，复盘之前发生的故事。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">自定义词库+语境复现</strong>——自定义导入你想背的单词，AI会在故事里自然地、反复地出现这些词。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">TTS语音朗读</strong>——逐句点读，整篇连听，一边看一边磨耳朵。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">故事投稿分享</strong>——你可以把自己创作的故事导出分享给我，也可以导入别人分享的故事来体验。后续我会搭建服务器和社区平台，让大家直接在线分享交流。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">接下来我还会继续迭代：</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">全面重构故事引擎</strong>——让互动方式和角度更丰富，不只是文本选择，增加更多参与感。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">接入多模态</strong>——加入画面和音效，让故事从纯文本变成真正的沉浸式体验。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">搭建服务器</strong>——暑假备案搭建服务器，到时候大家不用自己配置API，直接打开就能用。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">零基础开发教程</strong>——我会做一个系列栏目，专门分享我是怎么从一个完全不会编程的大一学生，用AI工具把这个想法变成现实的。</p>
+<hr style="border:none;border-top:1px solid var(--ljc-neutral-200);margin:24px 0;" >
+<h2 id="sec-111-kaif" style="font-size:20px;font-weight:500;color:var(--ljc-neutral-700);margin:28px 0 12px;font-family:var(--ljc-font-display);">写在最后</h2>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">我就是一个普通的大一学生，经济条件普通，没有国际学校背景，没有从小读英文原著的经历，也没有任何语言天赋。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">我学英语的经历和大多数人一样：背单词背到快吐了，刷题也刷不明白，英语考试成绩一直原地踏步。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">直到我接触到可理解输入理论，然后开始尝试自己开发一款游戏，用&quot;看爽文&quot;的方式学英语——末世求生、重生系统、规则怪谈、硬核科幻、修仙诡异，我找到了自己感兴趣的内容，大量地看，大量地听。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">我没有刻意备考，没有背过单词，但阅读能力确实在不知不觉中提升了。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">我没有变聪明，我只是找到了正确的方法，找到了语言学习的正确打开方式。我是一个幸运的人。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">如果你也在英语学习上挣扎了很多年，如果你也试过无数方法都没有用，我想告诉你：</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">问题从来不在你身上，而在方法。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">传统英语教育让你相信：先背单词，再学语法，最后有一天你就能开口说流利的英语了。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">但几十年的语言学研究告诉我们：<strong style="color:var(--ljc-neutral-700);font-weight:600;">这条路几乎从未奏效过。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">正确的路是：找到你感兴趣的内容，大量地读，大量地听，让语言在可理解的输入中自然生长。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">输入为主，语法为辅。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">唯一能让你坚持走到终点的，不是意志力，而是对内容本身的热爱。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">你所热爱的，就是你的生活。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">这个Demo我会持续免费开放下载。如果你感兴趣，欢迎关注我，后续我会持续更新产品的最新进展。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;">在这个AI时代，一个有想法的人，不应该被技术门槛拦住。</p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">你也有机会，像我一样。</strong></p>
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><strong style="color:var(--ljc-neutral-700);font-weight:600;">需要的，只是一个正确的方向，和一个勇敢的开始。</strong></p>
+<hr style="border:none;border-top:1px solid var(--ljc-neutral-200);margin:24px 0;" >
+<p style="font-size:15px;color:var(--ljc-neutral-600);line-height:1.85;margin:0 0 20px;"><em>本文理论内容参考自可理解输入假说及B站UP主罗肖尼的系列视频，推荐感兴趣的读者前往观看原视频，获取更完整的理论讲解。</em></p></div>
+
+            
+            <div style="margin-top:48px;padding-top:32px;">
+              <div data-dom-id="bd-tags-bottom" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;"><span class="tag-pill">英语</span><span class="tag-pill">游戏</span><span class="tag-pill">故事</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="blog-categorized.html" class="article-back" style="font-size:13px;color:var(--ljc-neutral-400);text-decoration:none;">← 返回博客列表</a>
+                <a href="contact.html" style="font-size:13px;color:var(--ljc-pink-500);text-decoration:none;">有问题？联系我 →</a>
+              </div>
+            </div>
+          </div>
+
+          
+          <aside class="resource-sidebar"><div class="sidebar-video" data-dom-id="video-player" style="position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--ljc-pink-50),var(--ljc-blue-50));border-radius:var(--ljc-radius-medium);margin-bottom:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <div class="video-play-btn" style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(180,170,200,0.15);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--ljc-pink-400)"><path d="M8 5v14l11-7z"></path></svg>
+        </div>
+        <span style="position:absolute;bottom:10px;left:12px;font-size:11px;color:var(--ljc-neutral-500);background:rgba(255,255,255,0.85);padding:3px 8px;border-radius:var(--ljc-radius-full);">【I+1Quest demo宣传片】我把AI时代的顶级英语学习方法，开发成了一款游戏... · 12:14</span>
+      </div>
+      <div style="font-size:11px;font-weight:500;color:var(--ljc-neutral-400);letter-spacing:0.08em;text-transform:uppercase;margin:20px 0 12px;">配套资料</div>
+      </aside>
+
+        </div>
+      </div>
+    </main>
+
+    
+    <footer style="border-top:1px solid var(--ljc-neutral-200);margin-top:96px;padding:48px 24px 32px;background:var(--ljc-neutral-50);">
+      <div style="max-width:920px;margin:0 auto;">
+        <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;">
+          <div>
+            <a href="index.html" style="display:flex;align-items:center;gap:7px;text-decoration:none;margin-bottom:12px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
+              <span style="font-size:15px;font-weight:500;color:var(--ljc-neutral-700);">赖嘉诚 · OPC 大航海</span>
+            </a>
+            <p style="font-size:13px;color:var(--ljc-neutral-500);line-height:1.7;max-width:260px;margin:0;">大一学生 / 独立开发者 / 一人公司探索者。用 AI 探索独立开发的无限可能。</p>
+          </div>
+          <div>
+            <h6 style="font-size:11px;font-weight:500;color:var(--ljc-neutral-400);letter-spacing:0.08em;text-transform:uppercase;margin:0 0 16px;">导航</h6>
+            <a href="index.html" data-dom-id="footer-home" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">首页</a>
+            <a href="blog-categorized.html" data-dom-id="footer-blog" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">博客</a>
+            <a href="portfolio.html" data-dom-id="footer-portfolio" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">作品集</a>
+          </div>
+          <div>
+            <h6 style="font-size:11px;font-weight:500;color:var(--ljc-neutral-400);letter-spacing:0.08em;text-transform:uppercase;margin:0 0 16px;">渠道</h6>
+            <a href="mailto:shufu123@foxmail.com" data-dom-id="footer-contact" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">邮件联系</a>
+            <a href="https://www.zhihu.com/people/snowballrolling" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">知乎 @赖嘉诚</a>
+              <a href="https://space.bilibili.com/3546374631065783" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">B站 @赖嘉诚</a>
+              <a href="https://www.douyin.com/user/MS4wLjABAAAA0WPNrPdcxloRp6H__iNWYVtkHg31FwnjhuBf21GG8fnXuly0s8r2INzgBamlcVDd" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">抖音 @赖嘉诚</a>
+              <a href="https://www.xiaohongshu.com/user/profile/6a03dda30000000001007001" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">小红书 @赖嘉诚</a>
+              <a href="https://github.com/snowball-diary" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">GitHub @LaiJiaCheng</a>
+            
+            <span style="display:block;font-size:13px;color:var(--ljc-neutral-500);margin-bottom:8px;">微信公众号 赖嘉诚OPC</span>
+          </div>
+        </div>
+        <div class="footer-bottom" style="display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--ljc-neutral-200);">
+          <span style="font-size:12px;color:var(--ljc-neutral-400);">© 2026 赖嘉诚 · OPC 大航海</span>
+          <span style="font-family:var(--ljc-font-mono);font-size:11px;color:var(--ljc-neutral-400);">31.23°N 121.47°E</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+      if (typeof Prism !== 'undefined') { Prism.highlightAll(); }
+
+      // TOC scroll-spy: highlight active section
+      (function() {
+        var headings = document.querySelectorAll('.article-body h2[id]');
+        var tocLinks = document.querySelectorAll('.toc-link');
+        function updateActive() {
+          var scrollY = window.scrollY + 100;
+          var current = headings[0];
+          headings.forEach(function(h) {
+            if (h.offsetTop <= scrollY) current = h;
+          });
+          var currentId = current ? current.id : '';
+          tocLinks.forEach(function(link) {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+          });
+        }
+        window.addEventListener('scroll', updateActive, { passive: true });
+        updateActive();
+
+        // Smooth scroll on TOC click
+        tocLinks.forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+      })();
+    </script>
+</body>
+</html>
