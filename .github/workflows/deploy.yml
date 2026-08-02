@@ -1,5 +1,5 @@
 # OPC Studio 发布工作流
-# 将 pages/ 子目录部署为 GitHub Pages 站点源
+# 将 pages/ + assets/ 合并后部署为 GitHub Pages 站点源
 # 配合 OPC Studio 的 publish:run(git push origin main)触发
 name: Deploy to GitHub Pages
 
@@ -28,10 +28,23 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload pages/ 子目录为 Pages 产物
+      - name: 组装部署目录(合并 pages/ 和 assets/)
+        run: |
+          mkdir -p _site
+          # 复制 pages 目录所有内容(HTML)
+          cp -r pages/* _site/
+          # 复制 assets 目录到部署根(HTML 引用 assets/xxx,需在根级)
+          cp -r assets _site/assets
+          # 列出最终部署内容,便于排查
+          echo "=== _site 内容 ==="
+          ls -la _site/
+          echo "=== _site/assets 内容 ==="
+          ls -la _site/assets/
+
+      - name: Upload _site 为 Pages 产物
         uses: actions/upload-pages-artifact@v3
         with:
-          path: pages
+          path: _site
 
   deploy:
     needs: build
