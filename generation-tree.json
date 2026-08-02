@@ -1,0 +1,69 @@
+{
+  "root": {
+    "nodeId": "gen-project-shell",
+    "kind": "project-shell",
+    "pageIds": ["page-index", "page-tutorial", "page-blog", "page-portfolio", "page-contact"],
+    "output": "partials/project-shell.html",
+    "sharedRegions": ["nav-bar", "footer-bar", "brass-divider", "global-background"],
+    "privateRegions": [],
+    "mutableSlots": ["activeNavItem", "pageContent"],
+    "status": "planned",
+    "children": [
+      {
+        "nodeId": "gen-page-index",
+        "kind": "page-leaf",
+        "pageIds": ["page-index"],
+        "output": "pages/index.html",
+        "sharedRegions": [],
+        "privateRegions": ["hero-section", "announcement-bar", "latest-content", "featured-projects", "now-status"],
+        "mutableSlots": ["activeNavItem"],
+        "status": "planned",
+        "children": []
+      },
+      {
+        "nodeId": "gen-page-tutorial",
+        "kind": "page-leaf",
+        "pageIds": ["page-tutorial"],
+        "output": "pages/tutorial.html",
+        "sharedRegions": [],
+        "privateRegions": ["breadcrumb", "video-embed", "article-markdown", "materials-sidebar", "related-links", "tutorial-info", "feedback-bar", "comment-section"],
+        "mutableSlots": ["activeNavItem"],
+        "status": "planned",
+        "children": []
+      },
+      {
+        "nodeId": "gen-page-blog",
+        "kind": "page-leaf",
+        "pageIds": ["page-blog"],
+        "output": "pages/blog.html",
+        "sharedRegions": [],
+        "privateRegions": ["filter-bar", "tag-cloud", "article-cards", "pagination"],
+        "mutableSlots": ["activeNavItem"],
+        "status": "planned",
+        "children": []
+      },
+      {
+        "nodeId": "gen-page-portfolio",
+        "kind": "page-leaf",
+        "pageIds": ["page-portfolio"],
+        "output": "pages/portfolio.html",
+        "sharedRegions": [],
+        "privateRegions": ["category-filter", "project-cards", "tech-tags"],
+        "mutableSlots": ["activeNavItem"],
+        "status": "planned",
+        "children": []
+      },
+      {
+        "nodeId": "gen-page-contact",
+        "kind": "page-leaf",
+        "pageIds": ["page-contact"],
+        "output": "pages/contact.html",
+        "sharedRegions": [],
+        "privateRegions": ["contact-heading", "mailto-button", "channel-list", "response-commitment", "coordinates"],
+        "mutableSlots": ["activeNavItem"],
+        "status": "planned",
+        "children": []
+      }
+    ]
+  }
+}

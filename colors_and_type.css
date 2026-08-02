@@ -1,0 +1,104 @@
+/* ============================================================
+   OPC 大航海 · 软萌唯美设计系统
+   Soft × Aesthetic Design System
+   淡粉 + 淡蓝 + 纯白 · 无边框 · 大留白 · 柔和圆角
+   ============================================================ */
+
+/* ---- Brand Token Scale ---- */
+:root {
+  /* Primary: Soft Pink — 淡粉 */
+  --ljc-pink-50: #FFF5F8;
+  --ljc-pink-100: #FFE4EC;
+  --ljc-pink-200: #FFD1DC;
+  --ljc-pink-300: #FFB5C8;
+  --ljc-pink-400: #FF9BB0;
+  --ljc-pink-500: #F0A5B8;
+  --ljc-pink-600: #D88BA0;
+
+  /* Secondary: Soft Blue — 淡蓝 */
+  --ljc-blue-50: #F0F6FC;
+  --ljc-blue-100: #D9EBF7;
+  --ljc-blue-200: #C5DBF0;
+  --ljc-blue-300: #A5C5E5;
+  --ljc-blue-400: #8AB0D8;
+  --ljc-blue-500: #6E9BCB;
+
+  /* Accent: Soft Lavender — 淡紫 */
+  --ljc-lavender-50: #F5F0FA;
+  --ljc-lavender-100: #E8D5F0;
+  --ljc-lavender-200: #D4C5E2;
+
+  /* Neutral: Warm White Scale */
+  --ljc-neutral-0: #FFFFFF;
+  --ljc-neutral-50: #FEFCFD;
+  --ljc-neutral-100: #F9F7FB;
+  --ljc-neutral-200: #F2F0F5;
+  --ljc-neutral-300: #E8E5EE;
+  --ljc-neutral-400: #B8B5C5;
+  --ljc-neutral-500: #928FA5;
+  --ljc-neutral-600: #6E6B85;
+  --ljc-neutral-700: #52505E;
+  --ljc-neutral-800: #3A3848;
+  --ljc-neutral-900: #28263A;
+
+  /* State colors — soft variants */
+  --ljc-state-success: #8BC4A0;
+  --ljc-state-success-soft: #EAF5EE;
+  --ljc-state-warning: #F0C674;
+  --ljc-state-warning-soft: #FFF5E0;
+  --ljc-state-error: #E8A0A0;
+  --ljc-state-error-soft: #FCEDED;
+  --ljc-state-info: #A5C5E5;
+  --ljc-state-info-soft: #F0F6FC;
+
+  /* Radius — soft and rounded */
+  --ljc-radius-small: 8px;
+  --ljc-radius-medium: 12px;
+  --ljc-radius-large: 16px;
+  --ljc-radius-full: 9999px;
+}
+
+/* ---- Semantic Aliases (Light Mode) ---- */
+:root {
+  --ljc-background: var(--ljc-neutral-0);
+  --ljc-foreground: var(--ljc-neutral-700);
+  --ljc-card: var(--ljc-neutral-0);
+  --ljc-card-foreground: var(--ljc-neutral-700);
+  --ljc-popover: var(--ljc-neutral-0);
+  --ljc-popover-foreground: var(--ljc-neutral-700);
+  --ljc-primary: var(--ljc-pink-300);
+  --ljc-primary-foreground: var(--ljc-neutral-0);
+  --ljc-secondary: var(--ljc-blue-300);
+  --ljc-secondary-foreground: var(--ljc-neutral-0);
+  --ljc-muted: var(--ljc-neutral-100);
+  --ljc-muted-foreground: var(--ljc-neutral-400);
+  --ljc-border: var(--ljc-neutral-200);
+  --ljc-input: var(--ljc-neutral-200);
+  --ljc-ring: var(--ljc-pink-300);
+  --ljc-accent: var(--ljc-pink-400);
+  --ljc-accent-soft: var(--ljc-pink-100);
+  --ljc-highlight: var(--ljc-pink-50);
+  --ljc-secondary-soft: var(--ljc-blue-50);
+}
+
+/* ---- Typography ---- */
+:root {
+  --ljc-font-display: 'PingFang SC', 'Noto Sans SC', -apple-system, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --ljc-font-body: 'PingFang SC', 'Noto Sans SC', -apple-system, 'Hiragino Sans GB', 'Microsoft YaHei', 'Inter', sans-serif;
+  --ljc-font-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+}
+
+.font-display { font-family: var(--ljc-font-display); font-weight: 500; }
+.font-body { font-family: var(--ljc-font-body); font-weight: 400; }
+.font-mono { font-family: var(--ljc-font-mono); }
+
+/* ---- 全站 body 背景(消除页脚上方空隙的白色) ---- */
+body { background: var(--ljc-blue-50); }
+
+/* ---- Surface Depth Model ---- */
+:root {
+  --ljc-shadow-xs: 0 1px 2px rgba(180, 170, 200, 0.02);
+  --ljc-shadow-sm: 0 2px 8px rgba(180, 170, 200, 0.03);
+  --ljc-shadow-md: 0 4px 16px rgba(180, 170, 200, 0.04);
+  --ljc-shadow-lg: 0 8px 24px rgba(180, 170, 200, 0.05);
+}

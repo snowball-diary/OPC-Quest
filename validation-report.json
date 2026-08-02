@@ -1,0 +1,174 @@
+{
+  "success": true,
+  "outcome": "passed",
+  "repairable": true,
+  "terminalViolations": [],
+  "terminalBlockingSummary": null,
+  "skillProvenance": {
+    "name": "solo-design",
+    "version": "2026.07.22.00.00.00",
+    "version_source": "skill-release-manifest.json",
+    "runtime_skill_dir": null,
+    "recorded_at": null,
+    "expected_version": "2026.07.22.00.00.00",
+    "status": "matched",
+    "read_status": "ok"
+  },
+  "operatingMode": "free-explore",
+  "renderBlockingErrorCount": 0,
+  "softWarningCount": 18,
+  "renderBlockingErrors": [],
+  "errorSignatures": [],
+  "softWarnings": [
+    "[html-head-style] blog-detail.html: found 2 custom <style> block(s) in <head>. The <head> is owned by apply-html-head-contract.mjs; move custom styles before </body> or re-run apply-html-head-contract.mjs <css-path> <html-file> --replace-head to relocate them.",
+    "[repair-ledger] validationRepairLedger[0].repairActions[] is missing",
+    "[repair-ledger] validationRepairLedger[0].revalidationReportPath is missing",
+    "[repair-ledger] validationRepairLedger[0].revalidationReportHash is missing",
+    "[repair-ledger] validationRepairLedger[0].revalidationSuccess should be a boolean",
+    "[repair-ledger] validationRepairLedger[1].repairActions[] is missing",
+    "[repair-ledger] validationRepairLedger[1].revalidationReportPath is missing",
+    "[repair-ledger] validationRepairLedger[1].revalidationReportHash is missing",
+    "[repair-ledger] validationRepairLedger[1].revalidationSuccess should be a boolean",
+    "[html-quality] colors_and_type.css: free-explore brand CSS must use one primary hue only; forbidden secondary/accent brand variables found (--ljc-secondary, --ljc-secondary-foreground, --ljc-accent, --ljc-accent-soft, --ljc-secondary-soft). Use --state-success/warning/error/info only for semantic states.",
+    "[html-quality] blog-categorized.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] blog-categorized.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states.",
+    "[html-quality] blog-detail.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states.",
+    "[html-quality] contact.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] contact.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states.",
+    "[html-quality] index.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states.",
+    "[html-quality] portfolio.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] portfolio.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states."
+  ],
+  "repairPlanHints": [
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "blog-categorized.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    },
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "contact.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    },
+    {
+      "errorClass": "hardcoded-color-in-body",
+      "owner": "sub-agent",
+      "repairScope": "targeted-token-replace",
+      "strategy": "targeted_token_replace_once",
+      "affectedFiles": [
+        "portfolio.html"
+      ],
+      "repairReportPath": null,
+      "repairAlreadyAttempted": false,
+      "allowSourceRead": "no-full-html-read",
+      "maxValidationRuns": 2
+    }
+  ],
+  "repairActionTable": [],
+  "errorCount": 0,
+  "warningCount": 18,
+  "errors": [],
+  "warnings": [
+    "[html-head-style] blog-detail.html: found 2 custom <style> block(s) in <head>. The <head> is owned by apply-html-head-contract.mjs; move custom styles before </body> or re-run apply-html-head-contract.mjs <css-path> <html-file> --replace-head to relocate them.",
+    "[repair-ledger] validationRepairLedger[0].repairActions[] is missing",
+    "[repair-ledger] validationRepairLedger[0].revalidationReportPath is missing",
+    "[repair-ledger] validationRepairLedger[0].revalidationReportHash is missing",
+    "[repair-ledger] validationRepairLedger[0].revalidationSuccess should be a boolean",
+    "[repair-ledger] validationRepairLedger[1].repairActions[] is missing",
+    "[repair-ledger] validationRepairLedger[1].revalidationReportPath is missing",
+    "[repair-ledger] validationRepairLedger[1].revalidationReportHash is missing",
+    "[repair-ledger] validationRepairLedger[1].revalidationSuccess should be a boolean",
+    "[html-quality] colors_and_type.css: free-explore brand CSS must use one primary hue only; forbidden secondary/accent brand variables found (--ljc-secondary, --ljc-secondary-foreground, --ljc-accent, --ljc-accent-soft, --ljc-secondary-soft). Use --state-success/warning/error/info only for semantic states.",
+    "[html-quality] blog-categorized.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] blog-categorized.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states.",
+    "[html-quality] blog-detail.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states.",
+    "[html-quality] contact.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] contact.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states.",
+    "[html-quality] index.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states.",
+    "[html-quality] portfolio.html: hardcoded colors are forbidden outside <style id=\"theme-vars\">. Use brand CSS variables from the token reference.",
+    "[html-quality] portfolio.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states."
+  ],
+  "validationRunDisciplineStatus": {
+    "declared": true,
+    "restoreMode": false,
+    "maxFullValidationRuns": null,
+    "validationHistoryCount": 2,
+    "repairLedgerCount": 2,
+    "softWarningsTriggerRepair": null,
+    "terminalState": null,
+    "nextAction": null,
+    "violations": [],
+    "success": true
+  },
+  "terminalState": null,
+  "nextCheck": {
+    "type": "finish-readiness",
+    "command": "node \"c:\\Users\\admin\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs\" \"e:\\with_Rookie\\Rookie-Snowball_Sharing\\02-Projects\\OPC_publish_update_system\\opc-website\" --check=all",
+    "fullValidationAllowed": false,
+    "reason": "workspace validation passed; run complete finish readiness before final delivery"
+  },
+  "repairBatch": [],
+  "repairContextPacket": {
+    "schema_version": "1.0",
+    "purpose": "small-context repair packet; read this before full validation-report.json",
+    "success": true,
+    "terminalState": null,
+    "skillProvenance": {
+      "name": "solo-design",
+      "version": "2026.07.22.00.00.00",
+      "version_source": "skill-release-manifest.json",
+      "runtime_skill_dir": null,
+      "recorded_at": null,
+      "expected_version": "2026.07.22.00.00.00",
+      "status": "matched",
+      "read_status": "ok"
+    },
+    "renderBlockingErrorCount": 0,
+    "softWarningCount": 18,
+    "renderBlockingErrors": [],
+    "repairActionTable": [],
+    "nextCheck": {
+      "type": "finish-readiness",
+      "command": "node \"c:\\Users\\admin\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs\" \"e:\\with_Rookie\\Rookie-Snowball_Sharing\\02-Projects\\OPC_publish_update_system\\opc-website\" --check=all",
+      "fullValidationAllowed": false,
+      "reason": "workspace validation passed; run complete finish readiness before final delivery"
+    },
+    "forbidden": [
+      "do not read validator source",
+      "do not rerun full validation when nextCheck.fullValidationAllowed=false",
+      "do not start preview/browser unless user explicitly asks",
+      "do not hand-edit repair ledger fields"
+    ]
+  },
+  "projectFileHashes": {
+    "opc-website.design": "2f24018866812f6bd511dffdc498262ff4c2cec480d78cf822f4ff06afe45292",
+    "colors_and_type.css": "4612c6b980aa92307f7e041c0fffe410fc41cc85e8fcd02eab35382b4ac249fa",
+    "runtime-orchestration-summary.json": "e91727d25bee34772661a0af512172914906d3431ac6a2e996bb45b33e757ded",
+    "pages/blog-categorized.html": "97f6089c93391098f3e5124f74f520b9a861b8f6e47a42384ec50b8b016a8cc5",
+    "pages/blog-detail.html": "e82382d3937fa8aaff5ef00a50e52e444610700c33ebd26853c4a0eb3f607539",
+    "pages/contact.html": "5ab414f90bfd4f61152e1907ee8bcc483fbc6a00dfa51fc8b893681b59cabf93",
+    "pages/index.html": "fd713594b9bd67fbf771607f453abc83e47379648c7515080f6a120f574d56dc",
+    "pages/portfolio.html": "894a0025adaf7d819236dd46ff67c1672d91e6fa56b72204c1b74e7fd446bdf9",
+    "assets/hero-starfield-bg.jpg": "3cb7d34a45581c5795e59b91da9ff490da2285eb42d22ed751a20f0dd3cc0a21"
+  },
+  "designDir": "e:\\with_Rookie\\Rookie-Snowball_Sharing\\02-Projects\\OPC_publish_update_system\\opc-website",
+  "expectedPages": null,
+  "requireInteractions": null,
+  "checkedAt": "2026-08-01T12:19:41.123Z"
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集</title>
+    <style id="theme-vars">
+/* ============================================================
+   OPC 大航海 · 软萌唯美设计系统
+   Soft × Aesthetic Design System
+   淡粉 + 淡蓝 + 纯白 · 无边框 · 大留白 · 柔和圆角
+   ============================================================ */
+
+/* ---- Brand Token Scale ---- */
+:root {
+  /* Primary: Soft Pink — 淡粉 */
+  --ljc-pink-50: #FFF5F8;
+  --ljc-pink-100: #FFE4EC;
+  --ljc-pink-200: #FFD1DC;
+  --ljc-pink-300: #FFB5C8;
+  --ljc-pink-400: #FF9BB0;
+  --ljc-pink-500: #F0A5B8;
+  --ljc-pink-600: #D88BA0;
+
+  /* Secondary: Soft Blue — 淡蓝 */
+  --ljc-blue-50: #F0F6FC;
+  --ljc-blue-100: #D9EBF7;
+  --ljc-blue-200: #C5DBF0;
+  --ljc-blue-300: #A5C5E5;
+  --ljc-blue-400: #8AB0D8;
+  --ljc-blue-500: #6E9BCB;
+
+  /* Accent: Soft Lavender — 淡紫 */
+  --ljc-lavender-50: #F5F0FA;
+  --ljc-lavender-100: #E8D5F0;
+  --ljc-lavender-200: #D4C5E2;
+
+  /* Neutral: Warm White Scale */
+  --ljc-neutral-0: #FFFFFF;
+  --ljc-neutral-50: #FEFCFD;
+  --ljc-neutral-100: #F9F7FB;
+  --ljc-neutral-200: #F2F0F5;
+  --ljc-neutral-300: #E8E5EE;
+  --ljc-neutral-400: #B8B5C5;
+  --ljc-neutral-500: #928FA5;
+  --ljc-neutral-600: #6E6B85;
+  --ljc-neutral-700: #52505E;
+  --ljc-neutral-800: #3A3848;
+  --ljc-neutral-900: #28263A;
+
+  /* State colors — soft variants */
+  --ljc-state-success: #8BC4A0;
+  --ljc-state-success-soft: #EAF5EE;
+  --ljc-state-warning: #F0C674;
+  --ljc-state-warning-soft: #FFF5E0;
+  --ljc-state-error: #E8A0A0;
+  --ljc-state-error-soft: #FCEDED;
+  --ljc-state-info: #A5C5E5;
+  --ljc-state-info-soft: #F0F6FC;
+
+  /* Radius — soft and rounded */
+  --ljc-radius-small: 8px;
+  --ljc-radius-medium: 12px;
+  --ljc-radius-large: 16px;
+  --ljc-radius-full: 9999px;
+}
+
+/* ---- Semantic Aliases (Light Mode) ---- */
+:root {
+  --ljc-background: var(--ljc-neutral-0);
+  --ljc-foreground: var(--ljc-neutral-700);
+  --ljc-card: var(--ljc-neutral-0);
+  --ljc-card-foreground: var(--ljc-neutral-700);
+  --ljc-popover: var(--ljc-neutral-0);
+  --ljc-popover-foreground: var(--ljc-neutral-700);
+  --ljc-primary: var(--ljc-pink-300);
+  --ljc-primary-foreground: var(--ljc-neutral-0);
+  --ljc-secondary: var(--ljc-blue-300);
+  --ljc-secondary-foreground: var(--ljc-neutral-0);
+  --ljc-muted: var(--ljc-neutral-100);
+  --ljc-muted-foreground: var(--ljc-neutral-400);
+  --ljc-border: var(--ljc-neutral-200);
+  --ljc-input: var(--ljc-neutral-200);
+  --ljc-ring: var(--ljc-pink-300);
+  --ljc-accent: var(--ljc-pink-400);
+  --ljc-accent-soft: var(--ljc-pink-100);
+  --ljc-highlight: var(--ljc-pink-50);
+  --ljc-secondary-soft: var(--ljc-blue-50);
+}
+
+/* ---- Typography ---- */
+:root {
+  --ljc-font-display: 'PingFang SC', 'Noto Sans SC', -apple-system, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --ljc-font-body: 'PingFang SC', 'Noto Sans SC', -apple-system, 'Hiragino Sans GB', 'Microsoft YaHei', 'Inter', sans-serif;
+  --ljc-font-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+}
+
+.font-display { font-family: var(--ljc-font-display); font-weight: 500; }
+.font-body { font-family: var(--ljc-font-body); font-weight: 400; }
+.font-mono { font-family: var(--ljc-font-mono); }
+
+/* ---- Surface Depth Model ---- */
+:root {
+  --ljc-shadow-xs: 0 1px 2px rgba(180, 170, 200, 0.02);
+  --ljc-shadow-sm: 0 2px 8px rgba(180, 170, 200, 0.03);
+  --ljc-shadow-md: 0 4px 16px rgba(180, 170, 200, 0.04);
+  --ljc-shadow-lg: 0 8px 24px rgba(180, 170, 200, 0.05);
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--ljc-background);
+    --color-foreground: var(--ljc-foreground);
+    --color-card: var(--ljc-card);
+    --color-card-foreground: var(--ljc-card-foreground);
+    --color-popover: var(--ljc-popover);
+    --color-popover-foreground: var(--ljc-popover-foreground);
+    --color-primary: var(--ljc-primary);
+    --color-primary-foreground: var(--ljc-primary-foreground);
+    --color-secondary: var(--ljc-secondary);
+    --color-secondary-foreground: var(--ljc-secondary-foreground);
+    --color-muted: var(--ljc-muted);
+    --color-muted-foreground: var(--ljc-muted-foreground);
+    --color-accent: var(--ljc-accent);
+    --color-border: var(--ljc-border);
+    --color-input: var(--ljc-input);
+    --color-ring: var(--ljc-ring);
+    --radius-sm: var(--ljc-radius-small);
+    --radius-md: var(--ljc-radius-medium);
+    --radius-lg: var(--ljc-radius-large);
+  }
+  @layer base {
+    body { background: var(--ljc-background); color: var(--ljc-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--ljc-background); }
+      .text-background { color: var(--ljc-background); }
+      .border-background { border-color: var(--ljc-background); }
+      .ring-background { --tw-ring-color: var(--ljc-background); }
+      .bg-foreground { background-color: var(--ljc-foreground); }
+      .text-foreground { color: var(--ljc-foreground); }
+      .border-foreground { border-color: var(--ljc-foreground); }
+      .ring-foreground { --tw-ring-color: var(--ljc-foreground); }
+      .bg-card { background-color: var(--ljc-card); }
+      .text-card { color: var(--ljc-card); }
+      .border-card { border-color: var(--ljc-card); }
+      .ring-card { --tw-ring-color: var(--ljc-card); }
+      .bg-card-foreground { background-color: var(--ljc-card-foreground); }
+      .text-card-foreground { color: var(--ljc-card-foreground); }
+      .border-card-foreground { border-color: var(--ljc-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--ljc-card-foreground); }
+      .bg-popover { background-color: var(--ljc-popover); }
+      .text-popover { color: var(--ljc-popover); }
+      .border-popover { border-color: var(--ljc-popover); }
+      .ring-popover { --tw-ring-color: var(--ljc-popover); }
+      .bg-popover-foreground { background-color: var(--ljc-popover-foreground); }
+      .text-popover-foreground { color: var(--ljc-popover-foreground); }
+      .border-popover-foreground { border-color: var(--ljc-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--ljc-popover-foreground); }
+      .bg-primary { background-color: var(--ljc-primary); }
+      .text-primary { color: var(--ljc-primary); }
+      .border-primary { border-color: var(--ljc-primary); }
+      .ring-primary { --tw-ring-color: var(--ljc-primary); }
+      .bg-primary-foreground { background-color: var(--ljc-primary-foreground); }
+      .text-primary-foreground { color: var(--ljc-primary-foreground); }
+      .border-primary-foreground { border-color: var(--ljc-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--ljc-primary-foreground); }
+      .bg-secondary { background-color: var(--ljc-secondary); }
+      .text-secondary { color: var(--ljc-secondary); }
+      .border-secondary { border-color: var(--ljc-secondary); }
+      .ring-secondary { --tw-ring-color: var(--ljc-secondary); }
+      .bg-secondary-foreground { background-color: var(--ljc-secondary-foreground); }
+      .text-secondary-foreground { color: var(--ljc-secondary-foreground); }
+      .border-secondary-foreground { border-color: var(--ljc-secondary-foreground); }
+      .ring-secondary-foreground { --tw-ring-color: var(--ljc-secondary-foreground); }
+      .bg-muted { background-color: var(--ljc-muted); }
+      .text-muted { color: var(--ljc-muted); }
+      .border-muted { border-color: var(--ljc-muted); }
+      .ring-muted { --tw-ring-color: var(--ljc-muted); }
+      .bg-muted-foreground { background-color: var(--ljc-muted-foreground); }
+      .text-muted-foreground { color: var(--ljc-muted-foreground); }
+      .border-muted-foreground { border-color: var(--ljc-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--ljc-muted-foreground); }
+      .bg-accent { background-color: var(--ljc-accent); }
+      .text-accent { color: var(--ljc-accent); }
+      .border-accent { border-color: var(--ljc-accent); }
+      .ring-accent { --tw-ring-color: var(--ljc-accent); }
+      .bg-border { background-color: var(--ljc-border); }
+      .text-border { color: var(--ljc-border); }
+      .border-border { border-color: var(--ljc-border); }
+      .ring-border { --tw-ring-color: var(--ljc-border); }
+      .bg-input { background-color: var(--ljc-input); }
+      .text-input { color: var(--ljc-input); }
+      .border-input { border-color: var(--ljc-input); }
+      .ring-input { --tw-ring-color: var(--ljc-input); }
+      .bg-ring { background-color: var(--ljc-ring); }
+      .text-ring { color: var(--ljc-ring); }
+      .border-ring { border-color: var(--ljc-ring); }
+      .ring-ring { --tw-ring-color: var(--ljc-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <style>
+      .pf-filter-pill { transition: background .2s ease, color .2s ease; cursor: pointer; }
+      .pf-filter-pill:hover { background: var(--ljc-pink-50); }
+      .pf-filter-pill.active { background: var(--ljc-pink-100); color: var(--ljc-pink-500); font-weight: 500; }
+      .pf-project-card { transition: box-shadow .25s ease, background .25s ease; }
+      .pf-project-card:hover { box-shadow: 0 4px 20px rgba(180,170,200,0.06); background: var(--ljc-pink-50); }
+      .pf-placeholder { background: linear-gradient(135deg, var(--ljc-pink-50), var(--ljc-blue-50)); }
+      .pf-cta { transition: opacity .2s ease, transform .2s ease; }
+      .pf-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+      .pf-desc { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      @media (max-width: 640px) {
+        .pf-grid { grid-template-columns: 1fr !important; }
+      }
+    </style>
+
+    
+    <nav style="background:rgba(255,255,255,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;">
+      <div style="max-width:920px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;"><a href="index.html" data-dom-id="nav-home" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
+  <span style="width:8px;height:8px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
+  <span style="font-size:15px;font-weight:500;color:var(--ljc-neutral-700);letter-spacing:0.01em;">赖嘉诚</span>
+  <span style="font-size:11px;color:var(--ljc-neutral-400);letter-spacing:0.05em;">OPC 大航海</span>
+</a>
+        <div style="display:flex;align-items:center;gap:2px;">
+          <a href="index.html" data-dom-id="nav-index" data-nav-key="index" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">首页</a>
+          <a href="blog-categorized.html" data-dom-id="nav-blog" data-nav-key="blog" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">博客</a>
+          <a href="portfolio.html" data-dom-id="nav-portfolio" data-nav-key="portfolio" data-active="true" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:500;color:var(--ljc-pink-500);background:var(--ljc-pink-100);">作品集</a>
+          <a href="contact.html" data-dom-id="nav-contact" data-nav-key="contact" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">联系</a>
+        </div></div>
+    </nav>
+
+    <main style="background:var(--ljc-blue-50);">
+      
+      <section style="max-width:920px;margin:0 auto;padding:64px 24px 0;text-align:center;">
+        <h1 style="font-size:36px;font-weight:500;color:#52505E;margin:0 0 8px;letter-spacing:0.01em;font-family:var(--ljc-font-display);">作品集</h1>
+        <p style="font-size:14px;color:#B8B5C5;margin:0;">项目与产品展示</p>
+      </section>
+
+      
+      <section style="max-width:920px;margin:0 auto;padding:48px 24px 0;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;">
+        <button class="pf-filter-pill active" data-filter="all" style="padding:7px 18px;font-size:13px;font-weight:500;color:var(--ljc-pink-500);background:var(--ljc-pink-100);border:none;border-radius:var(--ljc-radius-full);cursor:pointer;">全部</button>
+        <button class="pf-filter-pill" data-filter="production" style="padding:7px 18px;font-size:13px;font-weight:400;color:var(--ljc-neutral-500);background:transparent;border:none;border-radius:var(--ljc-radius-full);">生产系统</button>
+        <button class="pf-filter-pill" data-filter="webtool" style="padding:7px 18px;font-size:13px;font-weight:400;color:var(--ljc-neutral-500);background:transparent;border:none;border-radius:var(--ljc-radius-full);">Web工具</button>
+        <button class="pf-filter-pill" data-filter="learning" style="padding:7px 18px;font-size:13px;font-weight:400;color:var(--ljc-neutral-500);background:transparent;border:none;border-radius:var(--ljc-radius-full);">学习游戏</button>
+        <button class="pf-filter-pill" data-filter="fun" style="padding:7px 18px;font-size:13px;font-weight:400;color:var(--ljc-neutral-500);background:transparent;border:none;border-radius:var(--ljc-radius-full);">好玩物件</button>
+      </section>
+
+      
+      <section style="max-width:920px;margin:0 auto;padding:48px 24px 0;">
+        <div class="pf-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;"><div class="pf-project-card" data-category="production" style="background:var(--ljc-neutral-50);border-radius:var(--ljc-radius-large);padding:24px;">
+        <div class="pf-placeholder" style="height:180px;border-radius:var(--ljc-radius-large);display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:linear-gradient(135deg,var(--ljc-pink-50),var(--ljc-blue-50));"><span style="font-size:20px;font-weight:500;color:var(--ljc-neutral-400);font-family:var(--ljc-font-display);">OPC 大航海系统</span></div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
+          <span style="font-size:11px;color:var(--ljc-neutral-400);">进行中</span>
+        </div>
+        <h3 style="font-size:17px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 6px;font-family:var(--ljc-font-display);">OPC 大航海系统</h3>
+        <p class="pf-desc" style="font-size:13px;color:var(--ljc-neutral-500);line-height:1.6;margin:0 0 12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">一人公司全栈管理工具,涵盖 AI 秘书、学习系统、健康管理</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;"><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:11px;padding:3px 10px;border-radius:var(--ljc-radius-full);">Electron</span><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:11px;padding:3px 10px;border-radius:var(--ljc-radius-full);">React</span><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:11px;padding:3px 10px;border-radius:var(--ljc-radius-full);">Prisma</span></div>
+      </div>
+      <div class="pf-project-card" data-category="production" style="background:var(--ljc-neutral-50);border-radius:var(--ljc-radius-large);padding:24px;">
+        <div class="pf-placeholder" style="height:180px;border-radius:var(--ljc-radius-large);display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:linear-gradient(135deg,var(--ljc-pink-50),var(--ljc-blue-50));"><span style="font-size:20px;font-weight:500;color:var(--ljc-neutral-400);font-family:var(--ljc-font-display);">LifeQuant v4</span></div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
+          <span style="font-size:11px;color:var(--ljc-neutral-400);">进行中</span>
+        </div>
+        <h3 style="font-size:17px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 6px;font-family:var(--ljc-font-display);">LifeQuant v4</h3>
+        <p class="pf-desc" style="font-size:13px;color:var(--ljc-neutral-500);line-height:1.6;margin:0 0 12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">AI 健康管理系统,量化追踪与智能建议</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;"><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:11px;padding:3px 10px;border-radius:var(--ljc-radius-full);">TypeScript</span><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:11px;padding:3px 10px;border-radius:var(--ljc-radius-full);">SQLite</span></div>
+      </div>
+      <div class="pf-project-card" data-category="aiapp" style="background:var(--ljc-neutral-50);border-radius:var(--ljc-radius-large);padding:24px;">
+        <div class="pf-placeholder" style="height:180px;border-radius:var(--ljc-radius-large);display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:linear-gradient(135deg,var(--ljc-pink-50),var(--ljc-blue-50));"><span style="font-size:20px;font-weight:500;color:var(--ljc-neutral-400);font-family:var(--ljc-font-display);">I+1 Quest</span></div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
+          <span style="font-size:11px;color:var(--ljc-neutral-400);">进行中</span>
+        </div>
+        <h3 style="font-size:17px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 6px;font-family:var(--ljc-font-display);">I+1 Quest</h3>
+        <p class="pf-desc" style="font-size:13px;color:var(--ljc-neutral-500);line-height:1.6;margin:0 0 12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">AI 互动故事生成式英语学习软件</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;"><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:11px;padding:3px 10px;border-radius:var(--ljc-radius-full);">React</span><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:11px;padding:3px 10px;border-radius:var(--ljc-radius-full);">TTS</span><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:11px;padding:3px 10px;border-radius:var(--ljc-radius-full);">AI</span></div>
+      </div>
+      <div class="pf-project-card" data-category="webtool" style="background:var(--ljc-neutral-50);border-radius:var(--ljc-radius-large);padding:24px;">
+        <div class="pf-placeholder" style="height:180px;border-radius:var(--ljc-radius-large);display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:linear-gradient(135deg,var(--ljc-pink-50),var(--ljc-blue-50));"><span style="font-size:20px;font-weight:500;color:var(--ljc-neutral-400);font-family:var(--ljc-font-display);">个人网站</span></div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--ljc-blue-300);display:inline-block;"></span>
+          <span style="font-size:11px;color:var(--ljc-neutral-400);">已完成</span>
+        </div>
+        <h3 style="font-size:17px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 6px;font-family:var(--ljc-font-display);">个人网站</h3>
+        <p class="pf-desc" style="font-size:13px;color:var(--ljc-neutral-500);line-height:1.6;margin:0 0 12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">个人 IP 门户 · 博客 · 作品集 · 联系方式</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;"><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:11px;padding:3px 10px;border-radius:var(--ljc-radius-full);">HTML</span><span style="background:var(--ljc-blue-50);color:var(--ljc-blue-500);font-size:11px;padding:3px 10px;border-radius:var(--ljc-radius-full);">Tailwind</span></div>
+      </div></div>
+      </section>
+
+      
+      <section style="max-width:920px;margin:0 auto;padding:80px 24px 0;text-align:center;">
+        <p style="font-size:14px;color:#B8B5C5;margin:0 0 20px;">有项目想法？一起探索吧</p>
+        <a href="contact.html" data-dom-id="cta-contact-me" class="pf-cta" style="display:inline-block;background:#FFB5C8;color:#FFFFFF;font-size:14px;font-weight:500;text-decoration:none;border-radius:12px;padding:12px 32px;">联系合作</a>
+      </section>
+    </main>
+
+    
+    <footer style="border-top:1px solid var(--ljc-neutral-200);margin-top:96px;padding:48px 24px 32px;background:var(--ljc-neutral-50);">
+      <div style="max-width:920px;margin:0 auto;">
+        <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;">
+          <div>
+            <a href="index.html" style="display:flex;align-items:center;gap:7px;text-decoration:none;margin-bottom:12px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
+              <span style="font-size:15px;font-weight:500;color:var(--ljc-neutral-700);">赖嘉诚 · OPC 大航海</span>
+            </a>
+            <p style="font-size:13px;color:var(--ljc-neutral-500);line-height:1.7;max-width:260px;margin:0;">大一学生 / 独立开发者 / 一人公司探索者。用 AI 探索独立开发的无限可能。</p>
+          </div>
+          <div>
+            <h6 style="font-size:11px;font-weight:500;color:var(--ljc-neutral-400);letter-spacing:0.08em;text-transform:uppercase;margin:0 0 16px;">导航</h6>
+            <a href="index.html" data-dom-id="footer-home" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">首页</a>
+            <a href="blog-categorized.html" data-dom-id="footer-blog" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">博客</a>
+            <a href="portfolio.html" data-dom-id="footer-portfolio" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">作品集</a>
+          </div>
+          <div>
+            <h6 style="font-size:11px;font-weight:500;color:var(--ljc-neutral-400);letter-spacing:0.08em;text-transform:uppercase;margin:0 0 16px;">渠道</h6>
+            <a href="mailto:contact@laijiacheng.dev" data-dom-id="footer-contact" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">邮件联系</a>
+            <a href="https://www.zhihu.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">知乎 @赖嘉诚</a>
+              <a href="https://www.douyin.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">抖音 @赖嘉诚</a>
+              <a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">小红书 @赖嘉诚</a>
+              <a href="https://github.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">GitHub @LaiJiaCheng</a>
+              <a href="https://space.bilibili.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">B站 @赖嘉诚</a>
+            <span style="display:block;font-size:13px;color:var(--ljc-neutral-500);margin-bottom:8px;">QQ群 · 2个</span>
+            <span style="display:block;font-size:13px;color:var(--ljc-neutral-500);margin-bottom:8px;">微信公众号 赖嘉诚OPC</span>
+          </div>
+        </div>
+        <div class="footer-bottom" style="display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--ljc-neutral-200);">
+          <span style="font-size:12px;color:var(--ljc-neutral-400);">© 2026 赖嘉诚 · OPC 大航海</span>
+          <span style="font-family:var(--ljc-font-mono);font-size:11px;color:var(--ljc-neutral-400);">31.23°N 121.47°E</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelectorAll('.pf-filter-pill').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.pf-filter-pill').forEach(function(b) {
+            b.classList.remove('active');
+            b.style.fontWeight = '400';
+            b.style.color = 'var(--ljc-neutral-500)';
+            b.style.background = 'transparent';
+          });
+          this.classList.add('active');
+          this.style.fontWeight = '500';
+          this.style.color = 'var(--ljc-pink-500)';
+          this.style.background = 'var(--ljc-pink-100)';
+          var filter = this.getAttribute('data-filter');
+          document.querySelectorAll('.pf-project-card').forEach(function(card) {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+      lucide.createIcons();
+    </script>
+</body>
+</html>

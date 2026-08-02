@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preflight</title>
+    <style id="theme-vars">
+/* ============================================================
+   OPC 大航海 · 航海企业级设计系统
+   Nautical × Enterprise Design System
+   ============================================================ */
+
+/* ---- Brand Token Scale ---- */
+:root {
+  /* Primary: Deep Sea Blue — 深海蓝 */
+  --ljc-primary-50: #E3ECF5;
+  --ljc-primary-100: #C9D8EA;
+  --ljc-primary-200: #97B0D0;
+  --ljc-primary-300: #6588B6;
+  --ljc-primary-400: #3A5F8E;
+  --ljc-primary-500: #1B3A5C;
+  --ljc-primary-600: #163150;
+  --ljc-primary-700: #112844;
+  --ljc-primary-800: #0C1F38;
+  --ljc-primary-900: #08162C;
+
+  /* Brass: custom identity token — 黄铜金 */
+  --ljc-brass: #B8945F;
+  --ljc-brass-soft: #F0E4CC;
+  --ljc-brass-deep: #A68450;
+
+  /* Neutral: Parchment / Ink scale */
+  --ljc-neutral-0: #FFFEF7;
+  --ljc-neutral-50: #F5EFE0;
+  --ljc-neutral-100: #EDE5D2;
+  --ljc-neutral-200: #E4D9BE;
+  --ljc-neutral-300: #D6CBB0;
+  --ljc-neutral-400: #B8AD96;
+  --ljc-neutral-500: #8B9BA8;
+  --ljc-neutral-600: #5E6E7B;
+  --ljc-neutral-700: #3D4A5C;
+  --ljc-neutral-800: #2E3447;
+  --ljc-neutral-900: #1A1F2E;
+
+  /* State colors */
+  --ljc-state-success: #5A7A52;
+  --ljc-state-success-soft: #E1EADB;
+  --ljc-state-warning: #B8945F;
+  --ljc-state-warning-soft: #F0E4CC;
+  --ljc-state-error: #9C3D3D;
+  --ljc-state-error-soft: #F0DDDD;
+  --ljc-state-info: #1B3A5C;
+  --ljc-state-info-soft: #E3ECF5;
+
+  /* Radius */
+  --ljc-radius-small: 4px;
+  --ljc-radius-medium: 8px;
+  --ljc-radius-large: 14px;
+  --ljc-radius-full: 9999px;
+}
+
+/* ---- Semantic Aliases (Light Mode) ---- */
+:root {
+  --ljc-background: var(--ljc-neutral-50);
+  --ljc-foreground: var(--ljc-neutral-900);
+  --ljc-card: var(--ljc-neutral-0);
+  --ljc-card-foreground: var(--ljc-neutral-900);
+  --ljc-popover: var(--ljc-neutral-0);
+  --ljc-popover-foreground: var(--ljc-neutral-900);
+  --ljc-primary: var(--ljc-primary-500);
+  --ljc-primary-foreground: var(--ljc-neutral-0);
+  --ljc-muted: var(--ljc-neutral-100);
+  --ljc-muted-foreground: var(--ljc-neutral-500);
+  --ljc-border: var(--ljc-neutral-300);
+  --ljc-input: var(--ljc-neutral-300);
+  --ljc-ring: var(--ljc-primary-500);
+}
+
+/* ---- Semantic Aliases (Dark Mode) ---- */
+html.dark {
+  --ljc-background: var(--ljc-primary-900);
+  --ljc-foreground: var(--ljc-neutral-50);
+  --ljc-card: var(--ljc-primary-800);
+  --ljc-card-foreground: var(--ljc-neutral-50);
+  --ljc-popover: var(--ljc-primary-800);
+  --ljc-popover-foreground: var(--ljc-neutral-50);
+  --ljc-primary: var(--ljc-primary-300);
+  --ljc-primary-foreground: var(--ljc-primary-900);
+  --ljc-muted: var(--ljc-primary-700);
+  --ljc-muted-foreground: var(--ljc-neutral-400);
+  --ljc-border: var(--ljc-primary-700);
+  --ljc-input: var(--ljc-primary-600);
+  --ljc-ring: var(--ljc-primary-300);
+}
+
+/* ---- Typography ---- */
+:root {
+  --ljc-font-display: 'Songti SC', 'Source Han Serif SC', 'Noto Serif CJK SC', 'Cormorant Garamond', Georgia, serif;
+  --ljc-font-body: -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Inter', sans-serif;
+  --ljc-font-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+}
+
+.font-display { font-family: var(--ljc-font-display); }
+.font-body { font-family: var(--ljc-font-body); }
+.font-mono { font-family: var(--ljc-font-mono); }
+
+/* ---- Surface Depth Model ---- */
+:root {
+  --ljc-shadow-static: 0 1px 3px rgba(26,31,46,.04), 0 6px 24px rgba(26,31,46,.04);
+  --ljc-shadow-floating: 0 4px 12px rgba(26,31,46,.08), 0 16px 48px rgba(26,31,46,.10);
+}
+
+/* ---- Nautical Decorative Tokens ---- */
+:root {
+  --ljc-brass-line: 1px solid var(--ljc-brass);
+  --ljc-compass-size: 14px;
+  --ljc-grid-opacity: 0.03;
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--ljc-background);
+    --color-foreground: var(--ljc-foreground);
+    --color-card: var(--ljc-card);
+    --color-card-foreground: var(--ljc-card-foreground);
+    --color-popover: var(--ljc-popover);
+    --color-popover-foreground: var(--ljc-popover-foreground);
+    --color-primary: var(--ljc-primary);
+    --color-primary-foreground: var(--ljc-primary-foreground);
+    --color-muted: var(--ljc-muted);
+    --color-muted-foreground: var(--ljc-muted-foreground);
+    --color-border: var(--ljc-border);
+    --color-input: var(--ljc-input);
+    --color-ring: var(--ljc-ring);
+    --radius-sm: var(--ljc-radius-small);
+    --radius-md: var(--ljc-radius-medium);
+    --radius-lg: var(--ljc-radius-large);
+  }
+  @layer base {
+    body { background: var(--ljc-background); color: var(--ljc-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--ljc-background); }
+      .text-background { color: var(--ljc-background); }
+      .border-background { border-color: var(--ljc-background); }
+      .ring-background { --tw-ring-color: var(--ljc-background); }
+      .bg-foreground { background-color: var(--ljc-foreground); }
+      .text-foreground { color: var(--ljc-foreground); }
+      .border-foreground { border-color: var(--ljc-foreground); }
+      .ring-foreground { --tw-ring-color: var(--ljc-foreground); }
+      .bg-card { background-color: var(--ljc-card); }
+      .text-card { color: var(--ljc-card); }
+      .border-card { border-color: var(--ljc-card); }
+      .ring-card { --tw-ring-color: var(--ljc-card); }
+      .bg-card-foreground { background-color: var(--ljc-card-foreground); }
+      .text-card-foreground { color: var(--ljc-card-foreground); }
+      .border-card-foreground { border-color: var(--ljc-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--ljc-card-foreground); }
+      .bg-popover { background-color: var(--ljc-popover); }
+      .text-popover { color: var(--ljc-popover); }
+      .border-popover { border-color: var(--ljc-popover); }
+      .ring-popover { --tw-ring-color: var(--ljc-popover); }
+      .bg-popover-foreground { background-color: var(--ljc-popover-foreground); }
+      .text-popover-foreground { color: var(--ljc-popover-foreground); }
+      .border-popover-foreground { border-color: var(--ljc-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--ljc-popover-foreground); }
+      .bg-primary { background-color: var(--ljc-primary); }
+      .text-primary { color: var(--ljc-primary); }
+      .border-primary { border-color: var(--ljc-primary); }
+      .ring-primary { --tw-ring-color: var(--ljc-primary); }
+      .bg-primary-foreground { background-color: var(--ljc-primary-foreground); }
+      .text-primary-foreground { color: var(--ljc-primary-foreground); }
+      .border-primary-foreground { border-color: var(--ljc-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--ljc-primary-foreground); }
+      .bg-muted { background-color: var(--ljc-muted); }
+      .text-muted { color: var(--ljc-muted); }
+      .border-muted { border-color: var(--ljc-muted); }
+      .ring-muted { --tw-ring-color: var(--ljc-muted); }
+      .bg-muted-foreground { background-color: var(--ljc-muted-foreground); }
+      .text-muted-foreground { color: var(--ljc-muted-foreground); }
+      .border-muted-foreground { border-color: var(--ljc-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--ljc-muted-foreground); }
+      .bg-border { background-color: var(--ljc-border); }
+      .text-border { color: var(--ljc-border); }
+      .border-border { border-color: var(--ljc-border); }
+      .ring-border { --tw-ring-color: var(--ljc-border); }
+      .bg-input { background-color: var(--ljc-input); }
+      .text-input { color: var(--ljc-input); }
+      .border-input { border-color: var(--ljc-input); }
+      .ring-input { --tw-ring-color: var(--ljc-input); }
+      .bg-ring { background-color: var(--ljc-ring); }
+      .text-ring { color: var(--ljc-ring); }
+      .border-ring { border-color: var(--ljc-ring); }
+      .ring-ring { --tw-ring-color: var(--ljc-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

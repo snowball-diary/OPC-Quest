@@ -1,0 +1,84 @@
+<!-- ============================================================
+     OPC 大航海 · 共享项目外壳片段（软萌唯美版）
+     纯白背景 · 淡粉强调 · 无边框 · 大留白
+     Page Sub-Agent 须将此片段嵌入页面 <body> 中
+     ============================================================ -->
+
+<!-- ===== NAVIGATION BAR ===== -->
+<!-- 放置在 <body> 开头 -->
+<nav style="
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+">
+  <div style="max-width:920px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;">
+    <!-- Logo: 淡粉圆点 + 品牌名 -->
+    <a href="index.html" data-dom-id="nav-home" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
+      <span style="width:8px;height:8px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
+      <span style="font-size:15px;font-weight:500;color:var(--ljc-neutral-700);letter-spacing:0.01em;">赖嘉诚</span>
+      <span style="font-size:11px;color:var(--ljc-neutral-400);letter-spacing:0.05em;">OPC 大航海</span>
+    </a>
+    <!-- Nav Links — pill style, no borders -->
+    <div style="display:flex;align-items:center;gap:2px;">
+      <!-- SLOT: activeNavItem — 叶子页面在此填入 data-active="true" -->
+      <a href="index.html" data-dom-id="nav-index" data-nav-key="index" style="padding:6px 14px;font-size:13px;font-weight:400;color:var(--ljc-neutral-500);text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease, color .2s ease;">首页</a>
+      <a href="blog.html" data-dom-id="nav-blog" data-nav-key="blog" style="padding:6px 14px;font-size:13px;font-weight:400;color:var(--ljc-neutral-500);text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease, color .2s ease;">博客</a>
+      <a href="tutorial.html" data-dom-id="nav-tutorial" data-nav-key="tutorial" style="padding:6px 14px;font-size:13px;font-weight:400;color:var(--ljc-neutral-500);text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease, color .2s ease;">教程</a>
+      <a href="portfolio.html" data-dom-id="nav-portfolio" data-nav-key="portfolio" style="padding:6px 14px;font-size:13px;font-weight:400;color:var(--ljc-neutral-500);text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease, color .2s ease;">作品集</a>
+      <a href="contact.html" data-dom-id="nav-contact" data-nav-key="contact" style="padding:6px 14px;font-size:13px;font-weight:400;color:var(--ljc-neutral-500);text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease, color .2s ease;">联系</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== SECTION SEPARATOR ===== -->
+<!-- 不使用线条分隔，使用大留白代替。如需视觉分隔，用极淡背景色块 -->
+<!-- 使用方式: <div style="height:64px;"></div> -->
+
+<!-- ===== FOOTER ===== -->
+<!-- 放置在 <body> 结尾，页面内容之后 -->
+<footer style="
+  background: var(--ljc-neutral-100);
+  padding: 40px 0 28px;
+  margin-top: 80px;
+">
+  <div style="max-width:920px;margin:0 auto;padding:0 24px;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:24px;">
+      <!-- Brand -->
+      <div>
+        <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
+          <span style="font-size:14px;font-weight:500;color:var(--ljc-neutral-700);">赖嘉诚 · OPC 大航海</span>
+        </div>
+        <p style="font-size:12px;color:var(--ljc-neutral-400);line-height:1.8;max-width:260px;">独立开发者 / 教育创作者 / 一人公司探索者。用 AI 探索独立开发的无限可能。</p>
+      </div>
+      <!-- Quick Links -->
+      <div>
+        <h6 style="font-size:11px;font-weight:500;color:var(--ljc-neutral-500);letter-spacing:0.08em;margin-bottom:10px;">导航</h6>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a href="index.html" data-dom-id="footer-home" style="font-size:12px;color:var(--ljc-neutral-400);text-decoration:none;transition:color .2s ease;">首页</a>
+          <a href="blog.html" data-dom-id="footer-blog" style="font-size:12px;color:var(--ljc-neutral-400);text-decoration:none;transition:color .2s ease;">博客</a>
+          <a href="tutorial.html" data-dom-id="footer-tutorial" style="font-size:12px;color:var(--ljc-neutral-400);text-decoration:none;transition:color .2s ease;">教程</a>
+          <a href="portfolio.html" data-dom-id="footer-portfolio" style="font-size:12px;color:var(--ljc-neutral-400);text-decoration:none;transition:color .2s ease;">作品集</a>
+        </div>
+      </div>
+      <!-- Social -->
+      <div>
+        <h6 style="font-size:11px;font-weight:500;color:var(--ljc-neutral-500);letter-spacing:0.08em;margin-bottom:10px;">渠道</h6>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a href="contact.html" data-dom-id="footer-contact" style="font-size:12px;color:var(--ljc-neutral-400);text-decoration:none;transition:color .2s ease;">邮件联系</a>
+          <span style="font-size:12px;color:var(--ljc-neutral-400);">B站 @赖嘉诚</span>
+          <span style="font-size:12px;color:var(--ljc-neutral-400);">GitHub @yourname</span>
+          <span style="font-size:12px;color:var(--ljc-neutral-400);">微信群</span>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom bar -->
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--ljc-neutral-200);">
+      <span style="font-size:11px;color:var(--ljc-neutral-400);">© 2026 赖嘉诚 · OPC 大航海</span>
+      <span style="font-family:var(--ljc-font-mono);font-size:10px;color:var(--ljc-neutral-400);opacity:.5;letter-spacing:0.05em;">31.23°N 121.47°E</span>
+    </div>
+  </div>
+</footer>

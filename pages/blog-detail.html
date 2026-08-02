@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron + Prisma 桌面数据库实践 - 博客</title>
+    <style id="theme-vars">
+/* ============================================================
+   OPC 大航海 · 软萌唯美设计系统
+   Soft × Aesthetic Design System
+   淡粉 + 淡蓝 + 纯白 · 无边框 · 大留白 · 柔和圆角
+   ============================================================ */
+
+/* ---- Brand Token Scale ---- */
+:root {
+  /* Primary: Soft Pink — 淡粉 */
+  --ljc-pink-50: #FFF5F8;
+  --ljc-pink-100: #FFE4EC;
+  --ljc-pink-200: #FFD1DC;
+  --ljc-pink-300: #FFB5C8;
+  --ljc-pink-400: #FF9BB0;
+  --ljc-pink-500: #F0A5B8;
+  --ljc-pink-600: #D88BA0;
+
+  /* Secondary: Soft Blue — 淡蓝 */
+  --ljc-blue-50: #F0F6FC;
+  --ljc-blue-100: #D9EBF7;
+  --ljc-blue-200: #C5DBF0;
+  --ljc-blue-300: #A5C5E5;
+  --ljc-blue-400: #8AB0D8;
+  --ljc-blue-500: #6E9BCB;
+
+  /* Accent: Soft Lavender — 淡紫 */
+  --ljc-lavender-50: #F5F0FA;
+  --ljc-lavender-100: #E8D5F0;
+  --ljc-lavender-200: #D4C5E2;
+
+  /* Neutral: Warm White Scale */
+  --ljc-neutral-0: #FFFFFF;
+  --ljc-neutral-50: #FEFCFD;
+  --ljc-neutral-100: #F9F7FB;
+  --ljc-neutral-200: #F2F0F5;
+  --ljc-neutral-300: #E8E5EE;
+  --ljc-neutral-400: #B8B5C5;
+  --ljc-neutral-500: #928FA5;
+  --ljc-neutral-600: #6E6B85;
+  --ljc-neutral-700: #52505E;
+  --ljc-neutral-800: #3A3848;
+  --ljc-neutral-900: #28263A;
+
+  /* State colors — soft variants */
+  --ljc-state-success: #8BC4A0;
+  --ljc-state-success-soft: #EAF5EE;
+  --ljc-state-warning: #F0C674;
+  --ljc-state-warning-soft: #FFF5E0;
+  --ljc-state-error: #E8A0A0;
+  --ljc-state-error-soft: #FCEDED;
+  --ljc-state-info: #A5C5E5;
+  --ljc-state-info-soft: #F0F6FC;
+
+  /* Radius — soft and rounded */
+  --ljc-radius-small: 8px;
+  --ljc-radius-medium: 12px;
+  --ljc-radius-large: 16px;
+  --ljc-radius-full: 9999px;
+}
+
+/* ---- Semantic Aliases (Light Mode) ---- */
+:root {
+  --ljc-background: var(--ljc-neutral-0);
+  --ljc-foreground: var(--ljc-neutral-700);
+  --ljc-card: var(--ljc-neutral-0);
+  --ljc-card-foreground: var(--ljc-neutral-700);
+  --ljc-popover: var(--ljc-neutral-0);
+  --ljc-popover-foreground: var(--ljc-neutral-700);
+  --ljc-primary: var(--ljc-pink-300);
+  --ljc-primary-foreground: var(--ljc-neutral-0);
+  --ljc-secondary: var(--ljc-blue-300);
+  --ljc-secondary-foreground: var(--ljc-neutral-0);
+  --ljc-muted: var(--ljc-neutral-100);
+  --ljc-muted-foreground: var(--ljc-neutral-400);
+  --ljc-border: var(--ljc-neutral-200);
+  --ljc-input: var(--ljc-neutral-200);
+  --ljc-ring: var(--ljc-pink-300);
+  --ljc-accent: var(--ljc-pink-400);
+  --ljc-accent-soft: var(--ljc-pink-100);
+  --ljc-highlight: var(--ljc-pink-50);
+  --ljc-secondary-soft: var(--ljc-blue-50);
+}
+
+/* ---- Typography ---- */
+:root {
+  --ljc-font-display: 'PingFang SC', 'Noto Sans SC', -apple-system, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --ljc-font-body: 'PingFang SC', 'Noto Sans SC', -apple-system, 'Hiragino Sans GB', 'Microsoft YaHei', 'Inter', sans-serif;
+  --ljc-font-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+}
+
+.font-display { font-family: var(--ljc-font-display); font-weight: 500; }
+.font-body { font-family: var(--ljc-font-body); font-weight: 400; }
+.font-mono { font-family: var(--ljc-font-mono); }
+
+/* ---- Surface Depth Model ---- */
+:root {
+  --ljc-shadow-xs: 0 1px 2px rgba(180, 170, 200, 0.02);
+  --ljc-shadow-sm: 0 2px 8px rgba(180, 170, 200, 0.03);
+  --ljc-shadow-md: 0 4px 16px rgba(180, 170, 200, 0.04);
+  --ljc-shadow-lg: 0 8px 24px rgba(180, 170, 200, 0.05);
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--ljc-background);
+    --color-foreground: var(--ljc-foreground);
+    --color-card: var(--ljc-card);
+    --color-card-foreground: var(--ljc-card-foreground);
+    --color-popover: var(--ljc-popover);
+    --color-popover-foreground: var(--ljc-popover-foreground);
+    --color-primary: var(--ljc-primary);
+    --color-primary-foreground: var(--ljc-primary-foreground);
+    --color-secondary: var(--ljc-secondary);
+    --color-secondary-foreground: var(--ljc-secondary-foreground);
+    --color-muted: var(--ljc-muted);
+    --color-muted-foreground: var(--ljc-muted-foreground);
+    --color-accent: var(--ljc-accent);
+    --color-border: var(--ljc-border);
+    --color-input: var(--ljc-input);
+    --color-ring: var(--ljc-ring);
+    --radius-sm: var(--ljc-radius-small);
+    --radius-md: var(--ljc-radius-medium);
+    --radius-lg: var(--ljc-radius-large);
+  }
+  @layer base {
+    body { background: var(--ljc-background); color: var(--ljc-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--ljc-background); }
+      .text-background { color: var(--ljc-background); }
+      .border-background { border-color: var(--ljc-background); }
+      .ring-background { --tw-ring-color: var(--ljc-background); }
+      .bg-foreground { background-color: var(--ljc-foreground); }
+      .text-foreground { color: var(--ljc-foreground); }
+      .border-foreground { border-color: var(--ljc-foreground); }
+      .ring-foreground { --tw-ring-color: var(--ljc-foreground); }
+      .bg-card { background-color: var(--ljc-card); }
+      .text-card { color: var(--ljc-card); }
+      .border-card { border-color: var(--ljc-card); }
+      .ring-card { --tw-ring-color: var(--ljc-card); }
+      .bg-card-foreground { background-color: var(--ljc-card-foreground); }
+      .text-card-foreground { color: var(--ljc-card-foreground); }
+      .border-card-foreground { border-color: var(--ljc-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--ljc-card-foreground); }
+      .bg-popover { background-color: var(--ljc-popover); }
+      .text-popover { color: var(--ljc-popover); }
+      .border-popover { border-color: var(--ljc-popover); }
+      .ring-popover { --tw-ring-color: var(--ljc-popover); }
+      .bg-popover-foreground { background-color: var(--ljc-popover-foreground); }
+      .text-popover-foreground { color: var(--ljc-popover-foreground); }
+      .border-popover-foreground { border-color: var(--ljc-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--ljc-popover-foreground); }
+      .bg-primary { background-color: var(--ljc-primary); }
+      .text-primary { color: var(--ljc-primary); }
+      .border-primary { border-color: var(--ljc-primary); }
+      .ring-primary { --tw-ring-color: var(--ljc-primary); }
+      .bg-primary-foreground { background-color: var(--ljc-primary-foreground); }
+      .text-primary-foreground { color: var(--ljc-primary-foreground); }
+      .border-primary-foreground { border-color: var(--ljc-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--ljc-primary-foreground); }
+      .bg-secondary { background-color: var(--ljc-secondary); }
+      .text-secondary { color: var(--ljc-secondary); }
+      .border-secondary { border-color: var(--ljc-secondary); }
+      .ring-secondary { --tw-ring-color: var(--ljc-secondary); }
+      .bg-secondary-foreground { background-color: var(--ljc-secondary-foreground); }
+      .text-secondary-foreground { color: var(--ljc-secondary-foreground); }
+      .border-secondary-foreground { border-color: var(--ljc-secondary-foreground); }
+      .ring-secondary-foreground { --tw-ring-color: var(--ljc-secondary-foreground); }
+      .bg-muted { background-color: var(--ljc-muted); }
+      .text-muted { color: var(--ljc-muted); }
+      .border-muted { border-color: var(--ljc-muted); }
+      .ring-muted { --tw-ring-color: var(--ljc-muted); }
+      .bg-muted-foreground { background-color: var(--ljc-muted-foreground); }
+      .text-muted-foreground { color: var(--ljc-muted-foreground); }
+      .border-muted-foreground { border-color: var(--ljc-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--ljc-muted-foreground); }
+      .bg-accent { background-color: var(--ljc-accent); }
+      .text-accent { color: var(--ljc-accent); }
+      .border-accent { border-color: var(--ljc-accent); }
+      .ring-accent { --tw-ring-color: var(--ljc-accent); }
+      .bg-border { background-color: var(--ljc-border); }
+      .text-border { color: var(--ljc-border); }
+      .border-border { border-color: var(--ljc-border); }
+      .ring-border { --tw-ring-color: var(--ljc-border); }
+      .bg-input { background-color: var(--ljc-input); }
+      .text-input { color: var(--ljc-input); }
+      .border-input { border-color: var(--ljc-input); }
+      .ring-input { --tw-ring-color: var(--ljc-input); }
+      .bg-ring { background-color: var(--ljc-ring); }
+      .text-ring { color: var(--ljc-ring); }
+      .border-ring { border-color: var(--ljc-ring); }
+      .ring-ring { --tw-ring-color: var(--ljc-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+    <style id="code-highlight-theme">
+      /* Custom Prism theme — soft-cute palette */
+      code[class*="language-"], pre[class*="language-"] {
+        font-family: var(--ljc-font-mono);
+        font-size: 13px;
+        line-height: 1.7;
+        tab-size: 2;
+        text-shadow: none;
+      }
+      pre[class*="language-"] {
+        background: var(--ljc-neutral-100);
+        border-radius: var(--ljc-radius-medium);
+        padding: 20px 24px;
+        margin: 0 0 24px;
+        overflow-x: auto;
+        box-shadow: var(--ljc-shadow-sm);
+      }
+      :not(pre) > code[class*="language-"] {
+        background: var(--ljc-pink-50);
+        color: var(--ljc-pink-600);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      .token.comment, .token.prolog, .token.doctype, .token.cdata { color: var(--ljc-neutral-400); font-style: italic; }
+      .token.punctuation { color: var(--ljc-neutral-500); }
+      .token.property, .token.tag, .token.boolean, .token.constant, .token.symbol { color: var(--ljc-pink-500); }
+      .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: var(--ljc-state-success); }
+      .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string { color: var(--ljc-neutral-600); }
+      .token.atrule, .token.attr-value, .token.keyword { color: var(--ljc-pink-500); font-weight: 500; }
+      .token.function, .token.class-name { color: var(--ljc-blue-500); }
+      .token.regex, .token.important, .token.variable { color: var(--ljc-pink-400); }
+      .token.number { color: var(--ljc-pink-400); }
+      .token.important, .token.bold { font-weight: bold; }
+      .token.italic { font-style: italic; }
+    </style>
+    <style id="page-layout">
+      .article-container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+      .article-back { transition: color .2s ease; }
+      .article-back:hover { color: var(--ljc-pink-400); }
+
+      /* ===== Three-column grid: TOC + Article + Sidebar ===== */
+      .detail-grid {
+        display: grid;
+        grid-template-columns: 200px 1fr 260px;
+        gap: 40px;
+        align-items: start;
+      }
+
+      /* ===== TOC sidebar ===== */
+      .toc-sidebar { position: sticky; top: 80px; }
+      .toc-label {
+        font-size: 11px; font-weight: 500; color: var(--ljc-neutral-400);
+        letter-spacing: 0.1em; margin-bottom: 14px; text-transform: uppercase;
+        font-family: var(--ljc-font-body);
+      }
+      .toc-nav { display: flex; flex-direction: column; gap: 2px; }
+      .toc-link {
+        font-size: 13px; color: var(--ljc-neutral-500); text-decoration: none;
+        padding: 7px 14px; border-radius: var(--ljc-radius-small);
+        transition: all .15s ease; line-height: 1.5;
+        border-left: 2px solid transparent; display: block;
+        font-family: var(--ljc-font-body);
+      }
+      .toc-link:hover { color: var(--ljc-pink-500); background: var(--ljc-pink-50); }
+      .toc-link.active {
+        color: var(--ljc-pink-500); border-left-color: var(--ljc-pink-300);
+        background: var(--ljc-pink-50); font-weight: 500;
+      }
+
+      /* ===== Article main column ===== */
+      .article-body { font-family: var(--ljc-font-body); }
+      .article-body p { font-size: 15px; color: var(--ljc-neutral-600); line-height: 1.85; margin: 0 0 20px; }
+      .article-body h2 {
+        font-family: var(--ljc-font-display); font-size: 22px; font-weight: 500;
+        color: var(--ljc-neutral-700); margin: 44px 0 16px; letter-spacing: -0.01em;
+        scroll-margin-top: 80px;
+      }
+      .article-body h3 {
+        font-family: var(--ljc-font-display); font-size: 18px; font-weight: 500;
+        color: var(--ljc-neutral-700); margin: 32px 0 12px;
+        scroll-margin-top: 80px;
+      }
+      .article-body ul { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 10px; }
+      .article-body li { font-size: 15px; color: var(--ljc-neutral-600); line-height: 1.7; padding-left: 20px; position: relative; }
+      .article-body li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--ljc-pink-200); }
+      .article-body blockquote { margin: 0 0 24px; padding: 16px 20px; background: var(--ljc-pink-50); border-radius: var(--ljc-radius-medium); font-size: 14px; color: var(--ljc-neutral-600); line-height: 1.7; }
+
+      /* ===== Right sidebar: video + resources ===== */
+      .resource-sidebar { position: sticky; top: 80px; }
+      .sidebar-video {
+        width: 100%; aspect-ratio: 16/9;
+        background: linear-gradient(135deg, var(--ljc-pink-50), var(--ljc-blue-50));
+        border-radius: var(--ljc-radius-medium);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; transition: box-shadow .2s ease;
+        position: relative; overflow: hidden;
+      }
+      .sidebar-video:hover { box-shadow: var(--ljc-shadow-md); }
+      .video-play-btn {
+        width: 48px; height: 48px; border-radius: 50%;
+        background: rgba(255,255,255,0.85);
+        display: flex; align-items: center; justify-content: center;
+        backdrop-filter: blur(8px); transition: transform .2s ease;
+      }
+      .sidebar-video:hover .video-play-btn { transform: scale(1.08); }
+      .sidebar-label {
+        font-size: 13px; font-weight: 500; color: var(--ljc-neutral-700);
+        font-family: var(--ljc-font-display); margin-bottom: 14px;
+      }
+      .resource-card {
+        display: flex; align-items: center; gap: 12px;
+        padding: 12px 14px; border-radius: var(--ljc-radius-medium);
+        background: var(--ljc-neutral-0); text-decoration: none;
+        transition: background .2s ease;
+      }
+      .resource-card:hover { background: var(--ljc-pink-50); }
+      .resource-card-title { font-size: 13px; font-weight: 500; color: var(--ljc-neutral-700); }
+      .resource-card-desc { font-size: 11px; color: var(--ljc-neutral-400); margin-top: 2px; }
+
+      .tag-pill { display: inline-block; font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: var(--ljc-radius-full); background: var(--ljc-pink-50); color: var(--ljc-pink-500); }
+      .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+      .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+
+      @media (max-width: 900px) {
+        .detail-grid { grid-template-columns: 1fr; gap: 32px; }
+        .toc-sidebar { position: static; order: 1; }
+        .article-main { order: 2; }
+        .resource-sidebar { position: static; order: 3; }
+      }
+      @media (max-width: 640px) {
+        .article-container { padding: 0 16px; }
+        .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+        .footer-bottom { flex-direction: column; gap: 8px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .sidebar-video, .video-play-btn, .resource-card, .article-back { transition: none; }
+        .sidebar-video:hover .video-play-btn { transform: none; }
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased" style="font-family:var(--ljc-font-body);background:var(--ljc-blue-50);color:var(--ljc-foreground);">
+
+    
+    <nav style="background:rgba(255,255,255,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;">
+      <div style="max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;"><a href="index.html" data-dom-id="nav-home" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
+  <span style="width:8px;height:8px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
+  <span style="font-size:15px;font-weight:500;color:var(--ljc-neutral-700);letter-spacing:0.01em;">赖嘉诚</span>
+  <span style="font-size:11px;color:var(--ljc-neutral-400);letter-spacing:0.05em;">OPC 大航海</span>
+</a>
+        <div style="display:flex;align-items:center;gap:2px;">
+          <a href="index.html" data-dom-id="nav-index" data-nav-key="index" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">首页</a>
+          <a href="blog-categorized.html" data-dom-id="nav-blog" data-nav-key="blog" data-active="true" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:500;color:var(--ljc-pink-500);background:var(--ljc-pink-100);">博客</a>
+          <a href="portfolio.html" data-dom-id="nav-portfolio" data-nav-key="portfolio" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">作品集</a>
+          <a href="contact.html" data-dom-id="nav-contact" data-nav-key="contact" class="pf-filter-pill" style="padding:6px 14px;font-size:13px;text-decoration:none;border-radius:var(--ljc-radius-full);transition:background .2s ease,color .2s ease;font-weight:400;color:var(--ljc-neutral-500);">联系</a>
+        </div></div>
+    </nav>
+
+    <main style="background:var(--ljc-blue-50);">
+      
+      <div class="article-container" style="padding-top:24px;">
+        <a href="blog-categorized.html" data-dom-id="back-blog" class="article-back" style="font-size:13px;color:var(--ljc-neutral-400);text-decoration:none;">← 返回博客</a>
+      </div>
+
+      
+      <div class="article-container" style="padding-top:40px;">
+        <div style="display:flex;gap:8px;margin-bottom:16px;">
+          <span class="tag-pill">技术实践</span>
+          <span class="tag-pill">Electron</span>
+          <span class="tag-pill">Prisma</span>
+        </div>
+        <h1 style="font-size:32px;font-weight:500;color:var(--ljc-neutral-700);margin:0 0 12px;font-family:var(--ljc-font-display);">一篇文章</h1>
+        <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ljc-neutral-400);">
+          <span>赖嘉诚</span>
+          <span style="width:3px;height:3px;border-radius:50%;background:var(--ljc-neutral-300);display:inline-block;"></span>
+          <span style="font-family:var(--ljc-font-mono);">2026.07.28</span>
+          <span style="width:3px;height:3px;border-radius:50%;background:var(--ljc-neutral-300);display:inline-block;"></span>
+          <span>约 12 分钟</span>
+        </div>
+      </div>
+
+      
+      <div class="article-container" style="padding-top:48px;padding-bottom:64px;">
+        <div class="detail-grid">
+
+          
+          <aside class="toc-sidebar">
+            <div class="toc-label">目录</div>
+            <nav class="toc-nav">
+              <a href="#sec-why" class="toc-link active">为什么选 Prisma</a>
+              <a href="#sec-init" class="toc-link">项目初始化</a>
+              <a href="#sec-model" class="toc-link">定义数据模型</a>
+              <a href="#sec-ipc" class="toc-link">封装数据库操作</a>
+              <a href="#sec-migrate" class="toc-link">生成迁移并打包</a>
+              <a href="#sec-pitfalls" class="toc-link">踩过的坑</a>
+              <a href="#sec-summary" class="toc-link">总结</a>
+            </nav>
+          </aside>
+
+          
+          <div class="article-main">
+            <div class="article-body">
+              <p>在桌面应用开发中，本地数据库的选型一直是个让人头疼的问题。SQLite 轻量但手写 SQL 繁琐，IndexedDB 灵活但调试困难。本文记录我在 LifeQuant v4 项目中，用 Electron + Prisma 搭建本地数据库的完整实践过程。</p>
+
+              <h2 id="sec-why">为什么选 Prisma</h2>
+              <p>Prisma 是一个现代化的 TypeScript ORM，它的优势在于：</p>
+              <ul>
+                <li>类型安全 — Schema 即类型，告别手写 interface</li>
+                <li>迁移管理 — 自动生成 migration 文件，版本可控</li>
+                <li>查询直观 — 链式 API 比 SQL 更易读</li>
+                <li>IDE 友好 — 完善的自动补全和类型推断</li>
+              </ul>
+
+              <h2 id="sec-init">项目初始化</h2>
+              <p>首先创建 Electron 项目并安装 Prisma 依赖：</p>
+
+              <pre><code class="language-bash">mkdir electron-prisma-demo && cd electron-prisma-demo
+npm init -y
+npm install electron prisma @prisma/client
+npm install --save-dev electron-builder</code></pre>
+
+              <p>然后初始化 Prisma，选择 SQLite 作为数据库引擎：</p>
+
+              <pre><code class="language-bash">npx prisma init --datasource-provider sqlite</code></pre>
+
+              <p>这会在项目根目录生成 <code class="language-text">prisma/schema.prisma</code> 和 <code class="language-text">.env</code> 文件。</p>
+
+              <h2 id="sec-model">定义数据模型</h2>
+              <p>以健康追踪应用为例，定义体征记录模型：</p>
+
+              <pre><code class="language-typescript">// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model HealthRecord {
+  id        Int      @id @default(autoincrement())
+  type      String   // heart_rate | blood_pressure | weight
+  value     Float
+  unit      String
+  note      String?
+  recordedAt DateTime @default(now())
+  createdAt  DateTime @default(now())
+
+  @@index([type, recordedAt])
+}</code></pre>
+
+              <blockquote>注意 SQLite 不支持数组类型和枚举，用 String 存储类型标识即可。</blockquote>
+
+              <h2 id="sec-ipc">封装数据库操作</h2>
+              <p>在 Electron 主进程中初始化 Prisma Client，并通过 IPC 暴露给渲染进程：</p>
+
+              <pre><code class="language-typescript">// main/database.ts
+import { PrismaClient } from '@prisma/client'
+import { app } from 'electron'
+import path from 'path'
+
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: `file:${path.join(app.getPath('userData'), 'app.db')}`
+    }
+  }
+})
+
+export async function createRecord(data: {
+  type: string
+  value: number
+  unit: string
+  note?: string
+}) {
+  return prisma.healthRecord.create({ data })
+}
+
+export async function getRecords(type: string, limit = 100) {
+  return prisma.healthRecord.findMany({
+    where: { type },
+    orderBy: { recordedAt: 'desc' },
+    take: limit
+  })
+}</code></pre>
+
+              <h2 id="sec-migrate">生成迁移并打包</h2>
+              <p>每次修改 Schema 后，生成迁移文件并应用：</p>
+
+              <pre><code class="language-bash">npx prisma migrate dev --name init
+npx prisma generate</code></pre>
+
+              <p>打包时需要把 <code class="language-text">prisma/schema.prisma</code> 和迁移文件包含进 Electron 应用中：</p>
+
+              <pre><code class="language-json">// package.json
+{
+  "build": {
+    "extraResources": [
+      { "from": "prisma", "to": "prisma" },
+      { "from": "node_modules/.prisma", "to": "node_modules/.prisma" }
+    ]
+  }
+}</code></pre>
+
+              <h2 id="sec-pitfalls">踩过的坑</h2>
+              <h3>1. Prisma Client 路径问题</h3>
+              <p>打包后 Prisma Client 的查询引擎动态库路径会丢失。解决方案是在 <code class="language-text">beforePack</code> 钩子中修复路径，或使用 <code class="language-text">@prisma/client/edge</code> 版本。</p>
+
+              <h3>2. 数据库文件位置</h3>
+              <p>不要把数据库文件放在应用安装目录，否则更新时会丢失数据。应该使用 <code class="language-text">app.getPath('userData')</code> 获取用户数据目录。</p>
+
+              <h3>3. 主进程阻塞</h3>
+              <p>Prisma 的同步查询会阻塞 Electron 主进程。建议用 <code class="language-text">async/await</code> 并通过 IPC 异步调用。</p>
+
+              <h2 id="sec-summary">总结</h2>
+              <p>Electron + Prisma + SQLite 是桌面应用本地存储的优秀方案。类型安全、迁移管理、查询便捷三大优势让开发体验显著提升。主要注意打包路径和进程通信的异步处理。</p>
+            </div>
+
+            
+            <div style="margin-top:48px;padding-top:32px;">
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;">
+                <span class="tag-pill">Electron</span>
+                <span class="tag-pill">Prisma</span>
+                <span class="tag-pill">SQLite</span>
+                <span class="tag-pill">TypeScript</span>
+                <span class="tag-pill">桌面应用</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="blog-categorized.html" class="article-back" style="font-size:13px;color:var(--ljc-neutral-400);text-decoration:none;">← 返回博客列表</a>
+                <a href="contact.html" style="font-size:13px;color:var(--ljc-pink-500);text-decoration:none;">有问题？联系我 →</a>
+              </div>
+            </div>
+          </div>
+
+          
+          <aside class="resource-sidebar">
+      <div style="font-size:11px;font-weight:500;color:var(--ljc-neutral-400);letter-spacing:0.08em;text-transform:uppercase;margin:20px 0 12px;">配套资料</div>
+      </aside>
+
+        </div>
+      </div>
+    </main>
+
+    
+    <footer style="border-top:1px solid var(--ljc-neutral-200);margin-top:96px;padding:48px 24px 32px;background:var(--ljc-neutral-50);">
+      <div style="max-width:920px;margin:0 auto;">
+        <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;">
+          <div>
+            <a href="index.html" style="display:flex;align-items:center;gap:7px;text-decoration:none;margin-bottom:12px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--ljc-pink-300);display:inline-block;"></span>
+              <span style="font-size:15px;font-weight:500;color:var(--ljc-neutral-700);">赖嘉诚 · OPC 大航海</span>
+            </a>
+            <p style="font-size:13px;color:var(--ljc-neutral-500);line-height:1.7;max-width:260px;margin:0;">大一学生 / 独立开发者 / 一人公司探索者。用 AI 探索独立开发的无限可能。</p>
+          </div>
+          <div>
+            <h6 style="font-size:11px;font-weight:500;color:var(--ljc-neutral-400);letter-spacing:0.08em;text-transform:uppercase;margin:0 0 16px;">导航</h6>
+            <a href="index.html" data-dom-id="footer-home" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">首页</a>
+            <a href="blog-categorized.html" data-dom-id="footer-blog" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">博客</a>
+            <a href="portfolio.html" data-dom-id="footer-portfolio" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">作品集</a>
+          </div>
+          <div>
+            <h6 style="font-size:11px;font-weight:500;color:var(--ljc-neutral-400);letter-spacing:0.08em;text-transform:uppercase;margin:0 0 16px;">渠道</h6>
+            <a href="mailto:contact@laijiacheng.dev" data-dom-id="footer-contact" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">邮件联系</a>
+            <a href="https://www.zhihu.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">知乎 @赖嘉诚</a>
+              <a href="https://www.douyin.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">抖音 @赖嘉诚</a>
+              <a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">小红书 @赖嘉诚</a>
+              <a href="https://github.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">GitHub @LaiJiaCheng</a>
+              <a href="https://space.bilibili.com/" target="_blank" rel="noopener" style="display:block;font-size:13px;color:var(--ljc-neutral-500);text-decoration:none;margin-bottom:8px;transition:color .2s ease;">B站 @赖嘉诚</a>
+            <span style="display:block;font-size:13px;color:var(--ljc-neutral-500);margin-bottom:8px;">QQ群 · 2个</span>
+            <span style="display:block;font-size:13px;color:var(--ljc-neutral-500);margin-bottom:8px;">微信公众号 赖嘉诚OPC</span>
+          </div>
+        </div>
+        <div class="footer-bottom" style="display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--ljc-neutral-200);">
+          <span style="font-size:12px;color:var(--ljc-neutral-400);">© 2026 赖嘉诚 · OPC 大航海</span>
+          <span style="font-family:var(--ljc-font-mono);font-size:11px;color:var(--ljc-neutral-400);">31.23°N 121.47°E</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+      if (typeof Prism !== 'undefined') { Prism.highlightAll(); }
+
+      // TOC scroll-spy: highlight active section
+      (function() {
+        var headings = document.querySelectorAll('.article-body h2[id]');
+        var tocLinks = document.querySelectorAll('.toc-link');
+        function updateActive() {
+          var scrollY = window.scrollY + 100;
+          var current = headings[0];
+          headings.forEach(function(h) {
+            if (h.offsetTop <= scrollY) current = h;
+          });
+          var currentId = current ? current.id : '';
+          tocLinks.forEach(function(link) {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+          });
+        }
+        window.addEventListener('scroll', updateActive, { passive: true });
+        updateActive();
+
+        // Smooth scroll on TOC click
+        tocLinks.forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+      })();
+    </script>
+</body>
+</html>
