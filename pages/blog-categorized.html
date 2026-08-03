@@ -226,22 +226,67 @@
       }
     </style>
 
-    <style id="nav-responsive">
-      /* 手机端导航栏:缩小字号和间距,保证一行展示 */
+    
+    <style id="mobile-responsive">
+      /* ===== 手机端深度响应式(375px 及以下) ===== */
       @media (max-width: 640px) {
+        /* 导航栏:缩小品牌名/副标题/链接 */
         nav > div { padding: 0 12px !important; height: 50px !important; }
         nav a[data-nav-key] { padding: 4px 8px !important; font-size: 11px !important; }
         nav a[data-dom-id="nav-home"] span:nth-child(2) { font-size: 13px !important; }
-        nav a[data-dom-id="nav-home"] span:nth-child(3) { font-size: 9px !important; letter-spacing: 0.02em !important; }
+        nav a[data-dom-id="nav-home"] span:nth-child(3) { font-size: 9px !important; }
         nav > div > div:last-child { gap: 0 !important; }
+
+        /* 首页 Hero:标题缩小 */
+        section h1 { font-size: 28px !important; }
+        section p { font-size: 14px !important; }
+
+        /* 通用:减小大 padding */
+        .article-container, section { padding-left: 16px !important; padding-right: 16px !important; }
+
+        /* 博客列表/作品集:分类 pills 不换行 + 横向滚动 */
+        .pf-filters, .cat-nav-pills {
+          flex-wrap: nowrap !important;
+          overflow-x: auto !important;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+        .pf-filters::-webkit-scrollbar, .cat-nav-pills::-webkit-scrollbar { display: none; }
+        .pf-filter-pill, .pf-filters > a, .pf-filters > button {
+          flex-shrink: 0 !important;
+          padding: 5px 12px !important;
+          font-size: 12px !important;
+          white-space: nowrap !important;
+        }
+
+        /* 作品集卡片:图片高度缩小 */
+        .pf-project-card { padding: 16px !important; }
+        .pf-project-card > div:first-child[style*="height:180px"],
+        .pf-placeholder { height: 120px !important; }
+
+        /* 联系页:CTA 按钮缩小 */
+        a[href^="mailto:"] { font-size: 14px !important; padding: 10px 24px !important; }
+
+        /* 博客详情:减小留白 */
+        .article-body p { font-size: 14px !important; line-height: 1.8 !important; }
+        .article-body h2 { font-size: 18px !important; margin: 28px 0 12px !important; }
+        .article-body h3 { font-size: 16px !important; margin: 24px 0 10px !important; }
+        pre[class*="language-"] { padding: 12px 14px !important; font-size: 11px !important; }
+        .article-body blockquote { padding: 12px 14px !important; font-size: 13px !important; }
+
+        /* 页脚:减小 padding,网格单列 */
+        footer { padding: 32px 16px 24px !important; margin-top: 48px !important; }
+        .footer-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+        .footer-bottom { flex-direction: column !important; gap: 6px !important; }
       }
       @media (max-width: 380px) {
         nav a[data-nav-key] { padding: 4px 6px !important; font-size: 10px !important; }
         nav a[data-dom-id="nav-home"] span:nth-child(3) { display: none !important; }
+        section h1 { font-size: 24px !important; }
       }
     </style>
 </head>
-<body class="min-h-screen font-sans antialiased" style="background:var(--ljc-blue-50);">
+<body class="min-h-screen font-sans antialiased" style="font-family:var(--ljc-font-body);background:var(--ljc-blue-50);">
     <style id="critical-layout">
       /* ===== Layout Safety (survives without Tailwind) ===== */
       .page-wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
