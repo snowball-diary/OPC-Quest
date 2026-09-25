@@ -219,7 +219,8 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
   .nav{overflow-x:hidden}
   .nav-in{flex-direction:column;max-width:100vw;align-items:stretch;gap:8px;padding:12px 14px 8px}
   .brand{justify-content:flex-start}
-  .nav-links{justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap;gap:4px}
+  .nav-links{justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap;gap:4px;width:100%;min-width:0;max-height:64px;transition:max-height .28s ease,opacity .2s ease}
+  .nav-links.hide{max-height:0;opacity:0;overflow:hidden}
   .nav-links::-webkit-scrollbar{display:none}
   .nav-links a{white-space:nowrap;flex:0 0 auto;padding:8px 14px;font-size:13.5px;border:1px solid var(--ljc-neutral-200);background:var(--ljc-neutral-0)}
   .nav-links a.on{background:var(--ljc-pink-500);border-color:var(--ljc-pink-500);color:#fff;font-weight:500}
@@ -349,4 +350,18 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
 </div>
 <div class="copyright">© 2026 赖嘉诚 · OPC 大航海家</div>
 </div></footer>
+<script>
+(function(){
+  var nl=document.querySelector('.nav-links'); if(!nl) return
+  var lastY=window.scrollY
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>760){nl.classList.remove('hide');return}
+    var y=window.scrollY
+    if(y>lastY&&y>60){nl.classList.add('hide')}
+    else if(y<lastY){nl.classList.remove('hide')}
+    lastY=y
+  },{passive:true})
+  window.addEventListener('resize',function(){ if(window.innerWidth>760) nl.classList.remove('hide') })
+})()
+</script>
 </body></html>
