@@ -128,7 +128,14 @@ article.doc h1{font-size:28px;line-height:1.4;margin:8px 0 10px;color:var(--ljc-
 /* ---- 页脚 ---- */
 footer{border-top:1px solid var(--ljc-neutral-200);margin-top:88px;padding:44px 0 32px;background:var(--ljc-neutral-0)}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1.2fr;gap:28px}
-@media(max-width:680px){.foot-grid{grid-template-columns:1fr;gap:22px}}
+@media(max-width:680px){
+  .foot-grid{grid-template-columns:1fr;gap:24px}
+  footer,footer *{text-align:left}
+  footer .brand{justify-content:flex-start}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:8px}
+  .foot-nav a{margin:0;padding:6px 13px;border:1px solid var(--ljc-neutral-200);border-radius:var(--ljc-radius-full);font-size:12.5px}
+  .foot-qr img{width:84px;height:84px}
+}
 footer h6{font-size:11px;color:var(--ljc-neutral-400);letter-spacing:.08em;margin:0 0 12px;text-transform:uppercase}
 footer a,footer span{display:block;font-size:13px;color:var(--ljc-neutral-500);margin-bottom:7px}
 footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
@@ -209,15 +216,18 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
 .mod-intro{font-size:12px;color:var(--ljc-neutral-400);margin:4px 0 6px!important}
 
 @media(max-width:760px){
-  .nav-in{flex-direction:column;align-items:stretch;gap:6px;padding:10px 14px}
-  .brand{justify-content:center}
-  .nav-links{justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap}
+  .nav{overflow-x:hidden}
+  .nav-in{flex-direction:column;max-width:100vw;align-items:stretch;gap:8px;padding:12px 14px 8px}
+  .brand{justify-content:flex-start}
+  .nav-links{justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap;gap:4px}
   .nav-links::-webkit-scrollbar{display:none}
-  .nav-links a{white-space:nowrap;flex:0 0 auto;padding:6px 11px}
-  .hero{padding:52px 0 44px}
-  .hero-name{font-size:clamp(34px,10vw,44px)}
-  .hero-line2{font-size:16px;letter-spacing:.16em}
-  .hero-line3{font-size:11.5px;letter-spacing:.2em}
+  .nav-links a{white-space:nowrap;flex:0 0 auto;padding:8px 14px;font-size:13.5px;border:1px solid var(--ljc-neutral-200);background:var(--ljc-neutral-0)}
+  .nav-links a.on{background:var(--ljc-pink-500);border-color:var(--ljc-pink-500);color:#fff;font-weight:500}
+  .hero{padding:40px 0 34px}
+  .hero-name{font-size:clamp(32px,9.5vw,40px);letter-spacing:.04em}
+  .hero-line2{font-size:15px;letter-spacing:.14em}
+  .hero-line3{font-size:11px;letter-spacing:.12em}
+  .status{font-size:12px;padding:5px 12px}
   .quote-block{padding:34px 18px 4px}
   section.block{padding:40px 0}
   .doc{padding-top:34px}
@@ -275,7 +285,7 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
     <a class="brand" href="index.html" style="margin-bottom:10px"><span class="dot"></span>赖嘉诚<small>OPC 大航海家</small></a>
     <p class="about">大一学生 / 独立开发者 / 一人公司探索者。用 AI 探索独立开发的无限可能。</p>
   </div>
-  <div><h6>导航</h6><a href="index.html">首页</a><a href="courses.html">课程</a><a href="col-snowball.html">日记</a><a href="resources.html">宝贝</a><a href="welfare.html">福利</a><a href="projects.html">作品集</a><a href="about.html">关于</a></div>
+  <div><h6>导航</h6><div class="foot-nav"><a href="index.html">首页</a><a href="courses.html">课程</a><a href="col-snowball.html">日记</a><a href="resources.html">宝贝</a><a href="welfare.html">福利</a><a href="projects.html">作品集</a><a href="about.html">关于</a></div></div>
   <div><h6>找到我</h6><a href="https://www.zhihu.com/people/snowballrolling" target="_blank" rel="noopener">知乎 @赖嘉诚</a><a href="https://space.bilibili.com/3546374631065783" target="_blank" rel="noopener">B站 @赖嘉诚</a><a href="https://www.douyin.com/user/MS4wLjABAAAA0WPNrPdcxloRp6H__iNWYVtkHg31FwnjhuBf21GG8fnXuly0s8r2INzgBamlcVDd" target="_blank" rel="noopener">抖音 @赖嘉诚</a><a href="https://www.xiaohongshu.com/user/profile/6a03dda30000000001007001" target="_blank" rel="noopener">小红书 @赖嘉诚</a><a href="https://github.com/snowball-diary" target="_blank" rel="noopener">GitHub @LaiJiaCheng</a><div class="foot-qr"><img src="assets/WECHAT.jpeg" alt="赖嘉诚OPC二维码"><span class="t">赖嘉诚OPC<br>扫码关注 · 更新不错过</span></div></div>
 </div>
 <div class="copyright">© 2026 赖嘉诚 · OPC 大航海家</div>
