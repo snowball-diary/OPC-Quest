@@ -317,10 +317,10 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
     if(window.innerWidth>760){nl.classList.remove('hide');return}
     var y=window.scrollY, d=y-lastY
     if(locked){ lastY=y; return }
-    if(d>14 && y>80){
+    if(d>18 && y>80){
       nl.classList.add('hide'); locked=true; lastY=y
       setTimeout(function(){locked=false},300)
-    } else if(d<-10){
+    } else if(d<-20){
       nl.classList.remove('hide'); locked=true; lastY=y
       setTimeout(function(){locked=false},300)
     }
