@@ -166,18 +166,19 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
 /* ---- 纳瓦尔引言（两行分别成块，字号随屏宽自适应：每行刚好一行） ---- */
 .quote-block{max-width:640px;margin:0 auto;padding:46px 24px 6px;text-align:center}
 .quote-icon{color:var(--ljc-pink-300);display:inline-block;margin-bottom:10px}
-.quote-rot{position:relative;width:100%}
-.quote-slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .55s ease;pointer-events:none}
-.quote-slide.on{opacity:1;transform:none;pointer-events:auto}
+.quote-rot{display:grid;width:100%}
+.quote-slide{grid-area:1/1;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transform:translateY(10px);visibility:hidden;transition:opacity .55s ease,transform .55s ease,visibility 0s .55s}
+.quote-slide.on{opacity:1;transform:none;visibility:visible;transition:opacity .55s ease,transform .55s ease,visibility 0s 0s}
 .quote-text{margin:0;color:var(--ljc-neutral-700);font-family:var(--font-display);letter-spacing:.02em}
 .quote-text span{display:block;font-size:clamp(12.5px,4vw,17.5px);line-height:2}
 .quote-text .q-nowrap{white-space:nowrap}
 .quote-text .q-wrap{white-space:normal;max-width:34em;margin:0 auto}
 @media(max-width:420px){.quote-text .q-wrap{font-size:13px}}
 .quote-from{font-size:12.5px;color:var(--ljc-neutral-400);margin:14px 0 0!important;letter-spacing:.12em}
-.quote-dots{display:flex;gap:8px;justify-content:center;margin-top:16px}
-.quote-dots i{width:7px;height:7px;border-radius:50%;background:var(--ljc-neutral-300);cursor:pointer;transition:all .25s ease}
-.quote-dots i.on{background:var(--ljc-pink-500);width:20px;border-radius:var(--ljc-radius-full)}
+.quote-dots{position:relative;z-index:2;display:flex;gap:10px;justify-content:center;margin-top:20px}
+.quote-dots i{width:9px;height:9px;border-radius:50%;background:var(--ljc-neutral-300);cursor:pointer;transition:all .25s ease;border:0;padding:0}
+.quote-dots i:hover{background:var(--ljc-pink-300)}
+.quote-dots i.on{background:var(--ljc-pink-500);width:28px;border-radius:var(--ljc-radius-full)}
 /* ---- 福利卡 ---- */
 .welfare-card .welfare-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .welfare-card h3{margin:0}
@@ -287,10 +288,16 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
       <p class="quote-text"><span class="q-wrap">在 AGI 时代，最好的工作是在自由市场中，</span><span class="q-nowrap">作为终身学习者进行创造性的表达。</span></p>
       <p class="quote-from">—— 纳瓦尔 · 《纳瓦尔宝典》</p>
     </div><div class="quote-slide" data-i="1">
+      <p class="quote-text"><span class="q-nowrap">一个人不应该被一生束缚在单一工作上。</span><span class="q-wrap">多样化的活动，是心智健康、创造力生长的必要条件。</span></p>
+      <p class="quote-from">—— 罗素 · 《幸福之路》</p>
+    </div><div class="quote-slide" data-i="2">
       <p class="quote-text"><span class="q-wrap">在共产主义社会里，任何人都没有特殊的活动范围，</span><span class="q-wrap">可以在任何领域内自由发展，社会调节着整个生产。</span></p>
       <p class="quote-from">—— 马克思 · 《德意志意识形态》</p>
+    </div><div class="quote-slide" data-i="3">
+      <p class="quote-text"><span class="q-nowrap">教育的目的，是培养活跃的智慧，</span><span class="q-nowrap">而不是培养只会单一工种的工匠。</span></p>
+      <p class="quote-from">—— 怀特海 · 《教育的目的》</p>
     </div></div>
-    <div class="quote-dots"><i data-i="0" class="on"></i><i data-i="1"></i></div>
+    <div class="quote-dots"><i data-i="0" class="on"></i><i data-i="1"></i><i data-i="2"></i><i data-i="3"></i></div>
   </section>
   <script>
   (function(){
@@ -299,7 +306,6 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
     var dots=document.querySelectorAll('.quote-dots i')
     if(slides.length<2){ slides.forEach(function(s){s.classList.add('on')}); return }
     var i=0
-    function fit(){ var h=0; slides.forEach(function(s){ h=Math.max(h,s.scrollHeight) }); box.style.minHeight=(h+8)+'px' }
     function show(n){
       slides[i].classList.remove('on')
       if(dots[i]) dots[i].classList.remove('on')
@@ -307,8 +313,6 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
       slides[i].classList.add('on')
       if(dots[i]) dots[i].classList.add('on')
     }
-    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit); else fit()
-    window.addEventListener('resize',fit)
     setInterval(function(){ show(i+1) }, 6000)
     dots.forEach(function(d){ d.addEventListener('click',function(){ show(Number(d.dataset.i)) }) })
   })()

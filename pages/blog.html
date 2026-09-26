@@ -166,18 +166,19 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
 /* ---- 纳瓦尔引言（两行分别成块，字号随屏宽自适应：每行刚好一行） ---- */
 .quote-block{max-width:640px;margin:0 auto;padding:46px 24px 6px;text-align:center}
 .quote-icon{color:var(--ljc-pink-300);display:inline-block;margin-bottom:10px}
-.quote-rot{position:relative;width:100%}
-.quote-slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .55s ease;pointer-events:none}
-.quote-slide.on{opacity:1;transform:none;pointer-events:auto}
+.quote-rot{display:grid;width:100%}
+.quote-slide{grid-area:1/1;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transform:translateY(10px);visibility:hidden;transition:opacity .55s ease,transform .55s ease,visibility 0s .55s}
+.quote-slide.on{opacity:1;transform:none;visibility:visible;transition:opacity .55s ease,transform .55s ease,visibility 0s 0s}
 .quote-text{margin:0;color:var(--ljc-neutral-700);font-family:var(--font-display);letter-spacing:.02em}
 .quote-text span{display:block;font-size:clamp(12.5px,4vw,17.5px);line-height:2}
 .quote-text .q-nowrap{white-space:nowrap}
 .quote-text .q-wrap{white-space:normal;max-width:34em;margin:0 auto}
 @media(max-width:420px){.quote-text .q-wrap{font-size:13px}}
 .quote-from{font-size:12.5px;color:var(--ljc-neutral-400);margin:14px 0 0!important;letter-spacing:.12em}
-.quote-dots{display:flex;gap:8px;justify-content:center;margin-top:16px}
-.quote-dots i{width:7px;height:7px;border-radius:50%;background:var(--ljc-neutral-300);cursor:pointer;transition:all .25s ease}
-.quote-dots i.on{background:var(--ljc-pink-500);width:20px;border-radius:var(--ljc-radius-full)}
+.quote-dots{position:relative;z-index:2;display:flex;gap:10px;justify-content:center;margin-top:20px}
+.quote-dots i{width:9px;height:9px;border-radius:50%;background:var(--ljc-neutral-300);cursor:pointer;transition:all .25s ease;border:0;padding:0}
+.quote-dots i:hover{background:var(--ljc-pink-300)}
+.quote-dots i.on{background:var(--ljc-pink-500);width:28px;border-radius:var(--ljc-radius-full)}
 /* ---- 福利卡 ---- */
 .welfare-card .welfare-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .welfare-card h3{margin:0}
