@@ -146,8 +146,8 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
 .pagenote{text-align:center;font-size:12.5px;color:var(--ljc-neutral-400);padding:40px 0}
 .empty{color:var(--ljc-neutral-400);font-size:13.5px;padding:24px;text-align:center;border:1px dashed var(--ljc-neutral-200);border-radius:var(--ljc-radius-m)}
 /* ---- 首页 hero（姓名最大居中 + 三行标签） / 双栏 ---- */
-.hero-name{font-size:54px;margin:0 0 6px!important;color:var(--ljc-neutral-900);letter-spacing:.06em;font-weight:700}
-.hero-line2{font-size:20px;color:var(--ljc-neutral-600);margin:2px 0 0!important;letter-spacing:.22em}
+.hero-name{font-size:64px;margin:0 0 8px!important;color:var(--ljc-neutral-900);letter-spacing:.06em;font-weight:700}
+.hero-line2{font-size:24px;color:var(--ljc-neutral-600);margin:2px 0 0!important;letter-spacing:.22em}
 .hero-line3{font-size:13.5px;color:var(--ljc-neutral-400);letter-spacing:.3em;margin:8px 0 0!important}
 .home-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:680px){.home-two{grid-template-columns:1fr}}
@@ -162,9 +162,11 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
 .ls-dot{width:9px;height:9px;border-radius:50%;background:var(--ljc-pink-500);animation:ls-pulse 1.6s ease-in-out infinite;flex-shrink:0}
 @keyframes ls-pulse{0%,100%{box-shadow:0 0 0 0 rgba(240,165,184,.5)}50%{box-shadow:0 0 0 6px rgba(240,165,184,0)}}
 .ls-meta{font-size:12.5px;color:var(--ljc-neutral-500);font-family:var(--font-mono)}
+.ls-wrap{max-width:920px;margin:0 auto;padding-top:26px}
+.sec-first{padding:64px 0 8px}
 .ls-more{font-size:12.5px;color:var(--ljc-neutral-400);margin:-12px 0 22px;padding:0 6px}
 /* ---- 纳瓦尔引言（两行分别成块，字号随屏宽自适应：每行刚好一行） ---- */
-.quote-block{max-width:640px;margin:0 auto;padding:46px 24px 6px;text-align:center}
+.quote-block{max-width:640px;margin:0 auto;padding:26px 24px 0;text-align:center}
 .quote-icon{color:var(--ljc-pink-300);display:inline-block;margin-bottom:10px}
 .quote-rot{display:grid;width:100%}
 .quote-slide{grid-area:1/1;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transform:translateY(10px);visibility:hidden;transition:opacity .55s ease,transform .55s ease,visibility 0s .55s}
@@ -234,11 +236,13 @@ footer .about{font-size:13px;color:var(--ljc-neutral-500);max-width:280px}
   .nav-links a{white-space:nowrap;flex:0 0 auto;padding:8px 14px;font-size:13.5px;border:1px solid var(--ljc-neutral-200);background:var(--ljc-neutral-0)}
   .nav-links a.on{background:var(--ljc-pink-500);border-color:var(--ljc-pink-500);color:#fff;font-weight:500}
   .hero{padding:40px 0 34px}
-  .hero-name{font-size:clamp(32px,9.5vw,40px);letter-spacing:.04em}
-  .hero-line2{font-size:15px;letter-spacing:.14em}
+  .hero-name{font-size:clamp(36px,10.5vw,46px);letter-spacing:.04em}
+  .hero-line2{font-size:17px;letter-spacing:.14em}
   .hero-line3{font-size:11px;letter-spacing:.12em}
   .status{font-size:12px;padding:5px 12px}
-  .quote-block{padding:34px 18px 4px}
+  .quote-block{padding:22px 18px 0}
+  .ls-wrap{padding-top:20px}
+  .sec-first{padding:40px 0 6px}
   section.block{padding:40px 0}
   .doc{padding-top:34px}
   article.doc h1{font-size:23px}
